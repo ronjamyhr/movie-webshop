@@ -1,0 +1,19 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+row{
+    margin: 0;
+    padding: 0;
+}
+
+
+nav{
+    height: 10vh;
+    background-color: #434343;
+}
+
+.bigLogo{
+    width: 250px;
+}

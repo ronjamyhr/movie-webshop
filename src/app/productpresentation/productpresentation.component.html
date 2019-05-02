@@ -1,0 +1,10 @@
+<li>
+  <div class="frame">
+    <img class="image" src="{{movie.imageUrl}}" alt="{{movie.name}}" />
+  </div><br>
+  {{movie.name}}<br>
+  <button (click)="addMovieToCart()">Add to cart</button>
+  <!-- vill göra en liknande som nedan för att komma till en ny url med bara info om den filmen vi klickat på -->
+  <!-- <a [routerLink]="['/details', korven.id]" routerLinkActive="active">Mer info</a> -->
+
+</li>
