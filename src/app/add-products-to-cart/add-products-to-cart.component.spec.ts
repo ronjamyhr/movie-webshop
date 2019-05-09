@@ -26,15 +26,14 @@ describe('AddProductsToCartComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should create an empty cart', () => {
-    expect(component.cart.length).toEqual(0);
-  });
+  // it('should create an empty cart', () => {
+  //   expect(component.cart.length).toEqual(0);
+  // });
 
-  it('should add one product to cart', () => {
-    component.addMovieToCart();
-    expect(component.cart.length).toEqual(1);
-
-  });
+  // it('should add one product to cart', () => {
+  //   component.addMovieToCart();
+  //   expect(component.cart.length).toEqual(1);
+  // });
 
   // it('should add one product to cart, but amount should be two', () => {
   //   expect(component.cart.length).toEqual(1);

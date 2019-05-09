@@ -8,7 +8,7 @@ import { ICartProduct } from '../interfaces/ICartProduct';
 })
 export class AddProductsToCartComponent implements OnInit {
 
-  cart: ICartProduct[] = []
+  // cart: ICartProduct[] = []
 
   constructor() { }
 

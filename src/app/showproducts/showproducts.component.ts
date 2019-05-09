@@ -20,9 +20,9 @@ export class ShowproductsComponent implements OnInit {
   }
 
 
-  removeIt(id: number){
+  // removeIt(id: number){
     
-  }
+  // }
 
 
 }

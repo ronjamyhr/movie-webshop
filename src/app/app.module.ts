@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductpresentationComponent } from './productpresentation/productpresentation.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { AddProductsToCartComponent } from './add-products-to-cart/add-products-to-cart.component';
+// import { AddProductsToCartComponent } from './add-products-to-cart/add-products-to-cart.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { AddProductsToCartComponent } from './add-products-to-cart/add-products-
     ProductpresentationComponent,
     HeaderComponent,
     FooterComponent,
-    AddProductsToCartComponent
+    // AddProductsToCartComponent
   ],
   imports: [
     BrowserModule,
