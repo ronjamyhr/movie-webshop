@@ -3,6 +3,9 @@ import { ShowproductsComponent } from './showproducts.component';
 import { DataServiceService } from '../services/data-service.service';
 import { MockDataService } from '../services/mock-data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AddProductsToCartComponent } from '../add-products-to-cart/add-products-to-cart.component';
+import { ProductpresentationComponent } from '../productpresentation/productpresentation.component';
+
 
 describe('ShowproductsComponent', () => {
   let component: ShowproductsComponent;
@@ -10,7 +13,7 @@ describe('ShowproductsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShowproductsComponent ],
+      declarations: [ ShowproductsComponent, AddProductsToCartComponent, ProductpresentationComponent ],
       imports: [ HttpClientModule ]
 
     })

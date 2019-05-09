@@ -9,3 +9,15 @@
     width: 200px;
     overflow: hidden;
 }
+
+li{
+    list-style: none;
+}
+
+.productInformation{
+    min-height: 100px;
+}
+
+.addToCartBtn{
+    background-color: #ffdb6c;
+}
