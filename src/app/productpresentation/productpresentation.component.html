@@ -1,10 +1,18 @@
 <li>
-  <div class="frame">
-    <img class="image" src="{{movie.imageUrl}}" alt="{{movie.name}}" />
-  </div><br>
-  {{movie.name}}<br>
-  <button (click)="addMovieToCart()">Add to cart</button>
-  <!-- vill göra en liknande som nedan för att komma till en ny url med bara info om den filmen vi klickat på -->
-  <!-- <a [routerLink]="['/details', korven.id]" routerLinkActive="active">Mer info</a> -->
-
+  <div class="row justify-content-center">
+    <div class="frame col-10">
+      <img class="image" src="{{movie.imageUrl}}" alt="{{movie.name}}" />
+    </div>
+    <br>
+  </div>
+  <div class="row align-content-between justify-content-center productInformation text-center">
+    <div class="col-10">
+      {{movie.name}}<br>
+    </div>
+    <div class="col-10">
+      <button (click)="addMovieToCart(movie)" type="button" class="addToCartBtn btn btn-warning">Add to cart</button>
+    </div>
+    <!-- vill göra en liknande som nedan för att komma till en ny url med bara info om den filmen vi klickat på -->
+    <!-- <a [routerLink]="['/details', korven.id]" routerLinkActive="active">Mer info</a> -->
+  </div>
 </li>

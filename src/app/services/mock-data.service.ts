@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
 import { IDataService } from '../interfaces/IDataService';
 import { Observable, of } from 'rxjs';
+import { ICartProduct } from '../interfaces/ICartProduct';
 
 @Injectable({
   providedIn: 'root'
