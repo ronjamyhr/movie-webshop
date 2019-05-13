@@ -8,16 +8,16 @@ import { ICartProduct } from '../interfaces/ICartProduct';
 })
 export class InteractionService {
 
-  private tMS = new Subject<IMovie>();
+  private movieSource = new Subject<IMovie>();
 
   cart: ICartProduct[] = [];
 
-  tM$ = this.tMS.asObservable();
+  movieSource$ = this.movieSource.asObservable();
 
   constructor() { }
 
   sendMessage(movie: IMovie){
-    this.tMS.next(movie);
+    this.movieSource.next(movie);
     // console.log(this.cart);
   }
 }

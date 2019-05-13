@@ -8,9 +8,6 @@ import { ICartProduct } from '../interfaces/ICartProduct';
   providedIn: 'root'
 })
 export class MockDataService implements IDataService {
-  
-  
-
 
   movies: IMovie[] = [
     {
