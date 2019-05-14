@@ -4,6 +4,7 @@ import { DataServiceService } from '../services/data-service.service';
 import { MockDataService } from '../services/mock-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductpresentationComponent } from '../productpresentation/productpresentation.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 
 describe('ShowproductsComponent', () => {
@@ -13,7 +14,7 @@ describe('ShowproductsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ShowproductsComponent, ProductpresentationComponent ],
-      imports: [ HttpClientModule ]
+      imports: [ HttpClientModule, RouterTestingModule ]
 
     })
     .overrideComponent(ShowproductsComponent, { set: { providers: [{ provide: DataServiceService, useClass: MockDataService }]}})

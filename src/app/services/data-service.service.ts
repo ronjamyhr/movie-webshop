@@ -8,9 +8,17 @@ import { IMovie } from '../interfaces/IMovie';
 })
 export class DataServiceService {
 
-  getData():Observable<IMovie[]>{
+
+
+  fetchMovies():Observable<IMovie[]>{
 
     return this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products');
+  }
+
+
+  fetchSingleMovie(id):Observable<IMovie[]>{
+
+    return this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products/' + id);
   }
 
   constructor(private http: HttpClient) { }

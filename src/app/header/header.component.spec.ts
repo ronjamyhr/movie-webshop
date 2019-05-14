@@ -29,7 +29,7 @@ describe('HeaderComponent', () => {
 
     const service = new MockDataService();
 
-    service.getData().subscribe((movies) => {
+    service.fetchMovies().subscribe((movies) => {
 
       component.addToCart(movies[0]);
 
@@ -43,7 +43,7 @@ describe('HeaderComponent', () => {
 
     const service = new MockDataService();
 
-    service.getData().subscribe((movies) => {
+    service.fetchMovies().subscribe((movies) => {
 
       component.addToCart(movies[0]);
       component.addToCart(movies[1]);
@@ -58,7 +58,7 @@ describe('HeaderComponent', () => {
 
     const service = new MockDataService();
 
-    service.getData().subscribe((movies) => {
+    service.fetchMovies().subscribe((movies) => {
 
       component.addToCart(movies[0]);
       component.addToCart(movies[0]);
