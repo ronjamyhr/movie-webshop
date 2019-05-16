@@ -19,7 +19,9 @@ export class HeaderComponent implements OnInit {
       movie => {
         this.addToCart(movie);
       }
-    )
+      )
+      
+      this.printCart();
   }
 
   addToCart(movieToAdd: IMovie) {
@@ -45,6 +47,32 @@ export class HeaderComponent implements OnInit {
       // console.log(movieToAdd.name);
       console.log(this.cart);
     }
+
+    this.saveCartToLocalStorage();
+
   }
+
+  saveCartToLocalStorage(){
+    localStorage.setItem('myCartLocalStorage', JSON.stringify(this.cart));
+
+    this.printCart();
+  }
+ 
+  printCart(){
+
+    if(localStorage.getItem('myCartLocalStorage') == null || localStorage.getItem('myCartLocalStorage') == "[]" ){
+      
+      this.cart = [];
+
+    }else{
+
+      let fetchLocalStorageCart = localStorage.getItem('myCartLocalStorage');
+      this.cart = JSON.parse(fetchLocalStorageCart);
+
+    }
+
+  }
+
+
 
 }

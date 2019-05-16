@@ -11,16 +11,18 @@ import { MockDataService } from '../services/mock-data.service';
 })
 export class DetailsComponent implements OnInit {
 
-  singleMovie;
-  
+  singleMovie: IMovie;
+
   constructor(private route: ActivatedRoute, private dataService: DataServiceService) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(myParams =>{
+    this.route.paramMap.subscribe(myParams => {
       let id = myParams.get('id');
-      this.dataService.fetchSingleMovie(id).subscribe((data) => { this.singleMovie = data; });
-      // this.dataService.fetchMovie(id).subscribe((data) => { this.singleMovie = data; });
-
+      console.log('Got from service ' + id);
+      this.dataService.fetchSingleMovie(id).subscribe((data) => {
+        this.singleMovie = data;
       });
-    }
+      // this.dataService.fetchMovie(id).subscribe((data) => { this.singleMovie = data; });
+    });
+  }
 }

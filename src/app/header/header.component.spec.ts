@@ -14,6 +14,7 @@ describe('HeaderComponent', () => {
   }));
 
   beforeEach(() => {
+    localStorage.clear();
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -52,7 +53,6 @@ describe('HeaderComponent', () => {
     });
 
   });
-
 
   it('should add two amount of the same movie', () => {
 
