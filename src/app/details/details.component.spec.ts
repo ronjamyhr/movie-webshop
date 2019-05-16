@@ -36,4 +36,9 @@ describe('DetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have the id 76', () => {
+    expect(component.singleMovie.id).toEqual(76);
+  });
+
 });
