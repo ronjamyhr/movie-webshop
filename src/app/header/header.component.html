@@ -1,18 +1,21 @@
 <header>
   <nav>
 
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-3">
+        <img class="d-block bigLogo" src="../assets/images/huj2.png" alt="Logotype of the shop" title="SEEN logo">
       </div>
-      <div class="col-4">
-        <img class="d-block bigLogo" src="../assets/images/logoBig.jpg" alt="Logotype of the shop" title="SEEN logo">
-      </div>
-      <div class="col-3">
-        <h2>Cart:</h2>
-        <p *ngFor="let singleMovie of cart">
+      <div class="col-3 text-right">
+        <i (click)="toggleDropdownCart()" class="cartIcon fas fa-shopping-cart"></i>
+        <div class="cartDropdown text-left" *ngIf="showCart">
+          <h2>My Cart:</h2>
+          <hr>
+          <p *ngFor="let singleMovie of cart">
             Name: {{singleMovie.movie.name}}<br>
-            Amount: {{singleMovie.amount}} <br>
-        </p>
+            Price: {{singleMovie.movie.price}} sek<br>
+            <strong>Amount: {{singleMovie.amount}}</strong> <br> 
+          </p>
+        </div>
       </div>
     </div>
     <!-- gör en liknande sen:

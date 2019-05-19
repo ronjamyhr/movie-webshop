@@ -11,6 +11,7 @@ import { IMovie } from '../interfaces/IMovie';
 export class HeaderComponent implements OnInit {
 
   cart: ICartProduct[] = [];
+  showCart = false;
 
   constructor(private interactionService: InteractionService) { }
 
@@ -70,6 +71,12 @@ export class HeaderComponent implements OnInit {
       this.cart = JSON.parse(fetchLocalStorageCart);
 
     }
+
+  }
+
+  toggleDropdownCart(){
+
+    this.showCart = !this.showCart;
 
   }
 

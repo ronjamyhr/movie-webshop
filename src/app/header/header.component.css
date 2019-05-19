@@ -8,12 +8,33 @@ row{
     padding: 0;
 }
 
+header{
+    height: 100vh;
+    background-image: url('./../../assets/images/secondCarousel.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 nav{
-    height: 10vh;
-    background-color: #434343;
+    height: 15vh;
+    /* position: fixed;
+    width: 100%; */
+    /* background-color: #434343; */
 }
 
 .bigLogo{
+    margin-top: 1em;
     width: 250px;
+}
+
+.cartIcon{
+    padding-top: 1em;
+    color: #ffdb6c;
+    font-size: 2rem;
+}
+
+.cartDropdown{
+    background-color: #676767;
+    padding: 0.5em;
 }
