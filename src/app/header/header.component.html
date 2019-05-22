@@ -1,20 +1,30 @@
 <header>
   <nav>
-
     <div class="row justify-content-center">
-      <div class="col-3">
-        <img class="d-block bigLogo" src="../assets/images/huj2.png" alt="Logotype of the shop" title="SEEN logo">
+      <div class="col-6">
+        <img class="d-block bigLogo" src="../assets/images/headerLogo.png" alt="Logotype of the shop" title="SEEN logo">
       </div>
-      <div class="col-3 text-right">
+      <div class="col-6 text-right">
         <i (click)="toggleDropdownCart()" class="cartIcon fas fa-shopping-cart"></i>
         <div class="cartDropdown text-left" *ngIf="showCart">
-          <h2>My Cart:</h2>
+          <h2>Kundkorg</h2>
           <hr>
-          <p *ngFor="let singleMovie of cart">
-            Name: {{singleMovie.movie.name}}<br>
-            Price: {{singleMovie.movie.price}} sek<br>
-            <strong>Amount: {{singleMovie.amount}}</strong> <br> 
+          <div *ngFor="let singleMovie of cart">
+            <p>
+            Film: {{singleMovie.movie.name}}<br>
+            Pris: {{singleMovie.movie.price}}:-<br>
+            Antal: {{singleMovie.amount}}
+            <i class="add fas fa-plus" (click)="addOneMoreMovieToCart(singleMovie.movie.id)"></i>
+            <i class="subtract fas fa-minus" (click)="deleteOneMovieFromCart(singleMovie.movie.id)"></i><br>
+            <strong>Totalt: {{singleMovie.totalPrice}}:-</strong>
           </p>
+          </div>
+          <hr>
+          <p><strong>Total summa: {{totalSum}}:-</strong></p>
+          <p><button class="submitButton" [routerLink]="['/submit']">Gå vidare</button></p>
+
+          <!-- routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" -->
+          <!-- <a routerLink="/details" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Details</a> -->
         </div>
       </div>
     </div>

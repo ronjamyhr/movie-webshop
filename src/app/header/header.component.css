@@ -18,14 +18,16 @@ header{
 
 nav{
     height: 15vh;
-    /* position: fixed;
-    width: 100%; */
-    /* background-color: #434343; */
+    position: fixed;
+    width: 100%;
+    background-color: rgba(22, 22, 22, 0.3);
+    z-index: 1;
 }
 
 .bigLogo{
     margin-top: 1em;
     width: 250px;
+    float: left;
 }
 
 .cartIcon{
@@ -36,5 +38,24 @@ nav{
 
 .cartDropdown{
     background-color: #676767;
+    padding: 0.5em;
+}
+
+.submitButton{
+    background: #262626;
+    margin: 0.2em;
+    width: 100px;
+    border: none;
+    border-radius: 2px;
+}
+
+.submitButton:hover{
+    opacity: 0.75;
+}
+
+p .submitButton{
+    color: #ffdb6c;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
     padding: 0.5em;
 }
