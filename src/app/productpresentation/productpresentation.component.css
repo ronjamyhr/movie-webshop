@@ -46,6 +46,10 @@ li{
     border-radius: 2px;
 }
 
+.addToCartBtn:hover{
+    opacity: 0.75;
+}
+
 .movieInfoBtn{
     background: #262626;
     margin: 0.2em;
@@ -53,6 +57,11 @@ li{
     border: none;
     border-radius: 2px;
 }
+
+.movieInfoBtn:hover{
+    opacity: 0.75;
+}
+
 
 p .movieInfoBtn{
     color: #ffdb6c;
