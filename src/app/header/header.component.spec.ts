@@ -67,4 +67,53 @@ describe('HeaderComponent', () => {
     });
 
   });
+
+  it('should add one more movie to cart', () => {
+
+    const service = new MockDataService();
+
+    service.fetchMovies().subscribe((movies) => {
+
+      component.addToCart(movies[0]);
+      component.addOneMoreMovieToCart(76);
+      
+      expect(component.cart.length).toEqual(1);
+    });
+
+  });
+
+  it('should remove one movie from cart', () => {
+
+    const service = new MockDataService();
+
+    service.fetchMovies().subscribe((movies) => {
+
+      component.addToCart(movies[0]);
+      component.deleteOneMovieFromCart(76);
+      
+      expect(component.cart.length).toEqual(0);
+    });
+
+  });
+
+
+  // it('should count totalprice in cart', () => {
+
+  //   const service = new MockDataService();
+
+  //   service.fetchMovies().subscribe((movies) => {
+
+  //     component.addToCart(movies[0]);
+  //     component.addOneMoreMovieToCart(76);
+  //     component.countTotalPrice();
+
+  //     expect(component.cart.length).toEqual(1);
+  //   });
+
+  // });
+
+
+
+
+
 });
