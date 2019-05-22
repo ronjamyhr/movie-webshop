@@ -2,9 +2,10 @@
     <div class="col-6 text-center">
             <h1>{{singleMovie.name}}</h1>
             <img class="singleMovieImage" src="{{singleMovie.imageUrl}}" alt="{{singleMovie.name}}"/>
+            <p>{{singleMovie.description}}</p>
+            <p>{{singleMovie.year}}</p>
             <p>{{singleMovie.price}}:-</p>
-            <p><button (click)="addMovieToCart(movie)" type="button" class="addToCartBtn">Lägg till +</button></p>
-
+            <p><button (click)="addMovieToCart(singleMovie)" type="button" class="addToCartBtn">Lägg till +</button></p>
     </div>
 </div>
 

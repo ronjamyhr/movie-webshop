@@ -1,0 +1,16 @@
+
+.addToCartBtn{
+    background: #ffdb6c;
+    margin: 0.2em;
+    width: 100px;
+    border: none;
+    border-radius: 2px;
+}
+
+
+p .addToCartBtn{
+    color: #262626;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    padding: 0.5em;
+}

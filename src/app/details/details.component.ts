@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DataServiceService } from '../services/data-service.service';
 import { IMovie } from '../interfaces/IMovie';
 import { MockDataService } from '../services/mock-data.service';
+import { InteractionService } from '../services/interaction.service';
 
 @Component({
   selector: 'app-details',
@@ -13,7 +14,7 @@ export class DetailsComponent implements OnInit {
 
   singleMovie: IMovie;
 
-  constructor(private route: ActivatedRoute, private dataService: DataServiceService) { }
+  constructor(private route: ActivatedRoute, private dataService: DataServiceService, private interactionService: InteractionService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(myParams => {
@@ -25,4 +26,12 @@ export class DetailsComponent implements OnInit {
       // this.dataService.fetchMovie(id).subscribe((data) => { this.singleMovie = data; });
     });
   }
+
+
+  addMovieToCart(movie){
+    this.interactionService.sendMessage(movie);
+
+    console.log('Klick');
+  }
+
 }
