@@ -75,9 +75,25 @@ describe('HeaderComponent', () => {
     service.fetchMovies().subscribe((movies) => {
 
       component.addToCart(movies[0]);
-      component.addOneMoreMovieToCart(76);
+      component.addToCart(movies[1]);
       
-      expect(component.cart.length).toEqual(1);
+      expect(component.cart.length).toEqual(2);
+    });
+
+  });
+
+  it('should add even one more movie to cart', () => {
+
+    const service = new MockDataService();
+
+    service.fetchMovies().subscribe((movies) => {
+
+      component.addToCart(movies[0]);
+      component.addToCart(movies[1]);
+      component.addToCart(movies[0]);
+      
+      expect(component.cart.length).toEqual(2);
+      expect(component.cart[0].amount).toBe(2);
     });
 
   });
@@ -97,20 +113,40 @@ describe('HeaderComponent', () => {
   });
 
 
-  // it('should count totalprice in cart', () => {
+  it('should count totalprice in cart', () => {
 
-  //   const service = new MockDataService();
+    const service = new MockDataService();
 
-  //   service.fetchMovies().subscribe((movies) => {
+    service.fetchMovies().subscribe((movies) => {
 
-  //     component.addToCart(movies[0]);
-  //     component.addOneMoreMovieToCart(76);
-  //     component.countTotalPrice();
+      expect(component.totalSum).toEqual(0);
 
-  //     expect(component.cart.length).toEqual(1);
-  //   });
+      component.addToCart(movies[0]);
+      component.addToCart(movies[0]);  
+      component.countTotalPrice();
 
-  // });
+      expect(component.totalSum).toEqual(398);
+    });
+
+  });
+
+
+  it('should count totalamount in cart', () => {
+
+    const service = new MockDataService();
+
+    service.fetchMovies().subscribe((movies) => {
+
+      expect(component.totalAmount).toEqual(0);
+
+      component.addToCart(movies[0]);
+      component.addToCart(movies[0]);
+      component.countTotalAmount();
+
+      expect(component.totalAmount).toEqual(2);
+    });
+
+  });
 
 
 
