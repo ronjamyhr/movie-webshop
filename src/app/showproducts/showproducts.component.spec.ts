@@ -32,8 +32,6 @@ describe('ShowproductsComponent', () => {
   });
 
   it('should contain three movies', () => {
-    //const fixture = TestBed.createComponent(ShowproductsComponent);
-    //const component = fixture.debugElement.componentInstance;
     expect(component.productsArray.length).toEqual(3);
   });
 

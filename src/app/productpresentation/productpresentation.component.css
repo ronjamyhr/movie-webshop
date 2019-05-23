@@ -5,13 +5,13 @@
     transition: .5s ease;
 }
 
-.frame{
+.moviesFrame{
     height: 380px;
     width: 250px;
     overflow: hidden;
 }
 
-.frame:hover .movieImage{
+.moviesFrame:hover .movieImage{
     opacity: 0.3;
 }
 
@@ -26,7 +26,7 @@
     text-align: center;
 }
 
-.frame:hover .addToCart{
+.moviesFrame:hover .addToCart{
     opacity: 1;
 } 
 

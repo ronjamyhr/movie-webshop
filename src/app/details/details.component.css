@@ -1,4 +1,20 @@
 
+h1{
+    margin: 5em 0 1em 0;
+}
+
+.singleMovieFrame{
+    height: 430px;
+    width: 290px;
+    overflow: hidden;
+}
+
+.singleMovieImage{
+    object-fit: cover;
+    height: 430px;
+    width: 290px; 
+}
+
 .addToCartBtn{
     background: #ffdb6c;
     margin: 0.2em;
@@ -7,10 +23,35 @@
     border-radius: 2px;
 }
 
-
 p .addToCartBtn{
     color: #262626;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     padding: 0.5em;
 }
+
+.dot{
+    font-size: 0.3rem;
+    color: white;
+    margin:  0 0.7em;
+    align-items: center;
+}
+
+.goToHomepageIcon{
+    margin-top: 2em;
+    text-decoration: none;
+    font-size: 2rem;
+    color: darkgrey;
+}
+
+.goToHomepageIcon:hover, .goToHomepageLink:hover{
+    opacity: 0.3;
+}
+
+.goToHomepageLink{
+    text-decoration: none;
+    color: darkgrey;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
