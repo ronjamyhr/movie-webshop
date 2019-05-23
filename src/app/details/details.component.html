@@ -1,11 +1,21 @@
-<div class="row justify-content-center">
-    <div class="col-6 text-center">
-            <h1>{{singleMovie.name}}</h1>
-            <img class="singleMovieImage" src="{{singleMovie.imageUrl}}" alt="{{singleMovie.name}}"/>
-            <p>{{singleMovie.description}}</p>
-            <p>{{singleMovie.year}}</p>
-            <p>{{singleMovie.price}}:-</p>
-            <p><button (click)="addMovieToCart(singleMovie)" type="button" class="addToCartBtn">Lägg till +</button></p>
+<article>
+  <div class='row justify-content-center'>
+    <div class='col-6 text-center'>
+      <h1>{{singleMovie.name}}</h1>
+      <div class="row">
+        <div class="col-6">
+          <div class="singleMovieFrame">
+            <img class='singleMovieImage' src='{{singleMovie.imageUrl}}' alt='{{singleMovie.name}}' />
+          </div>
+        </div>
+        <div class="col-6">
+          <p>{{singleMovie.description}}</p>
+          <p>{{singleMovie.year}} <i class="fas fa-circle dot"></i> {{singleMovie.price}}:-</p>
+          <p><button (click)='addMovieToCart(singleMovie)' type='button' class='addToCartBtn'>Lägg till +</button></p>
+        </div>
+      </div>
+      <a class="fas fa-backward goToHomepageIcon" [routerLink]="['']"></a><br>
+      <a class="goToHomepageLink" [routerLink]="['']">Go to homepage</a>
     </div>
-</div>
-
+  </div>
+</article>

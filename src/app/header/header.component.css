@@ -1,7 +1,7 @@
-* {
+/* * {
     margin: 0 auto;
     padding: 0 auto;
-}
+} */
 
 row{
     margin: 0;
@@ -9,7 +9,7 @@ row{
 }
 
 nav{
-    height: 15vh;
+    height: 12vh;
     position: fixed;
     width: 100%;
     background-color: rgba(22, 22, 22, 0.3);
@@ -17,20 +17,21 @@ nav{
 }
 
 .bigLogo{
-    margin-top: 1em;
-    width: 250px;
+    margin-top: 0.5em;
+    width: 200px;
     float: left;
 }
 
 .cartIcon{
     padding-top: 1em;
+    margin-right: 0.5em;
     color: #ffdb6c;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .cartDropdown{
-    background-color: #676767;
-    padding: 0.5em;
+    background-color: #1b1a1a;
+    padding: 1em;
 }
 
 .submitButton{
