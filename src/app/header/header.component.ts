@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   cart: ICartProduct[] = [];
   showCart = false;
   totalSum: number;
+  totalAmount: number;
 
   constructor(private interactionService: InteractionService) { }
 
@@ -26,6 +27,7 @@ export class HeaderComponent implements OnInit {
 
     this.printCart();
     this.countTotalPrice();
+    this.countTotalAmount();
   }
 
   addToCart(movieToAdd: IMovie) {
@@ -47,13 +49,16 @@ export class HeaderComponent implements OnInit {
       //console.log(this.cart);
     }
     this.saveCartToLocalStorage();
+    this.countTotalAmount();
 
   }
+  
 
   saveCartToLocalStorage() {
     localStorage.setItem('myCartLocalStorage', JSON.stringify(this.cart));
     this.printCart();
   }
+
 
   printCart() {
     let fetchLocalStorageCart = localStorage.getItem('myCartLocalStorage');
@@ -66,10 +71,12 @@ export class HeaderComponent implements OnInit {
     this.countTotalPrice();
   }
 
+
   toggleDropdownCart() {
     this.showCart = !this.showCart;
     this.countTotalPrice();
   }
+
 
   countTotalPrice() {
     this.totalSum = 0;
@@ -84,15 +91,17 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  addOneMoreMovieToCart(id: number) {
+  countTotalAmount(){
+    this.totalAmount = 0;
+
     for (let i = 0; i < this.cart.length; i++) {
-      if (this.cart[i].movie.id === id) {
-        this.cart[i].amount++;
-        this.cart[i].totalPrice += this.cart[i].movie.price;
-      }
+     
+      // this.totalAmount blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
+      this.totalAmount += this.cart[i].amount;
+
     }
-    this.saveCartToLocalStorage();
   }
+
 
   deleteOneMovieFromCart(id: number) {
     for (let i = 0; i < this.cart.length; i++) {
@@ -108,6 +117,7 @@ export class HeaderComponent implements OnInit {
       }
     }
     this.saveCartToLocalStorage();
+    this.countTotalAmount();
   }
 
 

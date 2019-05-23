@@ -4,8 +4,11 @@
       <div class="col-8">
         <img class="d-block bigLogo" src="../assets/images/headerLogo.png" alt="Logotype of the shop" title="SEEN logo">
       </div>
+
       <div class="col-4 text-right">
         <i (click)="toggleDropdownCart()" class="cartIcon fas fa-shopping-cart"></i>
+        <p class="totalAmount">{{totalAmount}}</p>
+
         <div class="cartDropdown text-left" *ngIf="showCart">
           <h2>Kundkorg</h2>
           <hr>
@@ -14,7 +17,7 @@
             Film: {{singleMovie.movie.name}}<br>
             Pris: {{singleMovie.movie.price}}:-<br>
             Antal: {{singleMovie.amount}}
-            <i class="add fas fa-plus" (click)="addOneMoreMovieToCart(singleMovie.movie.id)"></i>
+            <i class="add fas fa-plus" (click)="addToCart(singleMovie.movie)"></i>
             <i class="subtract fas fa-minus" (click)="deleteOneMovieFromCart(singleMovie.movie.id)"></i><br>
             <strong>Totalt: {{singleMovie.totalPrice}}:-</strong>
           </p>
