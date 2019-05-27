@@ -1,39 +1,40 @@
 <header>
   <nav>
-    <div class="row justify-content-center">
-      <div class="col-8">
-        <img class="d-block bigLogo" src="../assets/images/headerLogo.png" alt="Logotype of the shop" title="SEEN logo">
+    <div class='row justify-content-center'>
+      <div class='col-8'>
+        <img class='d-block bigLogo' src='../assets/images/headerLogo.png' alt='Logotype of the shop' title='SEEN logo'>
       </div>
 
-      <div class="col-4 text-right">
-        <i (click)="toggleDropdownCart()" class="cartIcon fas fa-shopping-cart"></i>
-        <p class="totalAmount">{{totalAmount}}</p>
+      <div class='col-4 text-right'>
+        <i (click)='toggleDropdownCart()' class='cartIcon fas fa-shopping-cart'></i>
+        <p class='totalAmount'>{{totalAmount}}</p>
 
-        <div class="cartDropdown text-left" *ngIf="showCart">
+        <div class='cartDropdown text-left' *ngIf='showCart'>
           <h2>Kundkorg</h2>
           <hr>
-          <div *ngFor="let singleMovie of cart">
+          <div *ngFor='let singleMovie of cart'>
             <p>
             Film: {{singleMovie.movie.name}}<br>
             Pris: {{singleMovie.movie.price}}:-<br>
             Antal: {{singleMovie.amount}}
-            <i class="add fas fa-plus" (click)="addToCart(singleMovie.movie)"></i>
-            <i class="subtract fas fa-minus" (click)="deleteOneMovieFromCart(singleMovie.movie.id)"></i><br>
+            
+            <i class='add fas fa-plus' (click)='addSingleMovieToCart(singleMovie.movie)'></i>
+            <i class='subtract fas fa-minus' (click)='deleteOneMovieFromCart(singleMovie.movie.id)'></i><br>
             <strong>Totalt: {{singleMovie.totalPrice}}:-</strong>
           </p>
           </div>
           <hr>
           <p><strong>Total summa: {{totalSum}}:-</strong></p>
-          <!-- <p><button class="submitButton" [routerLink]="['/submit']">Gå vidare</button></p> -->
+          <p><button class='submitButton' routerLink='/checkout'>Gå vidare</button></p>
 
-          <!-- routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" -->
-          <!-- <a routerLink="/details" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Details</a> -->
+          <!-- routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }' -->
+          <!-- <a routerLink='/details' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Details</a> -->
         </div>
       </div>
     </div>
     <!-- gör en liknande sen:
-    <a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">About</a>
-    <a routerLink="/details" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Details</a>
-    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a> -->
+    <a routerLink='/about' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>About</a>
+    <a routerLink='/details' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Details</a>
+    <a routerLink='' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Home</a> -->
   </nav>
 </header>

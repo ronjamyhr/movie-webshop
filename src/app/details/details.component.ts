@@ -38,7 +38,7 @@ export class DetailsComponent implements OnInit {
 
 
   addMovieToCart(movie){
-    this.interactionService.sendMessage(movie);
+    this.interactionService.sendCart(movie);
 
     console.log('Klick');
   }
