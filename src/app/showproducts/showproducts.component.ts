@@ -15,7 +15,7 @@ export class ShowproductsComponent implements OnInit {
   }
 
   ngOnInit() {
-     // Här prenumererar vi på data som vi får från fetchMovies, är all data vi får sparas i variabeln movieApi.
+     // Här prenumererar vi på data som vi får från fetchMovies, all data vi får sparas i variabeln movieApi.
      this.dataService.fetchMovies().subscribe(movieApi => this.productsArray = movieApi);
   }
 

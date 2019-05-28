@@ -1,46 +1,48 @@
 <header>
   <nav [class]="navClassName">
     <div class='row justify-content-center'>
-      <div class='col-8'>
-        <img class='d-block bigLogo' src='../assets/images/headerLogo.png' alt='Logotype of the shop' title='SEEN logo'>
+      <div class='col-4 col-md-6 col-lg-8'>
+        <a [routerLink]="['']"><img class='d-block bigLogo' src='../assets/images/headerLogo.png'
+            alt='Logotype of the shop' title='SEEN logo' /></a>
       </div>
 
-      <div class='col-4 text-right cartContainer'>
+      <div class='col-8 col-md-6 col-lg-4 text-right cartContainer'>
         <i (click)='toggleDropdownCart()' class='cartIcon fas fa-shopping-cart'></i>
         <p class='totalAmount'>{{totalAmount}}</p>
 
         <div class='cartDropdown text-left' *ngIf='showCart'>
           <div class="row">
-            <div class="col-6"><h2>Kundkorg</h2></div>
+            <div class="col-6">
+              <h2>Kundkorg</h2>
+            </div>
             <div class="col-6 text-right"><i (click)='toggleDropdownCart()' class='closeIcon fas fa-times'></i></div>
           </div>
-          
-          
 
           <hr>
-          <div *ngFor='let singleMovie of cart'>
-            <p>
-            Film: {{singleMovie.movie.name}}<br>
-            Pris: {{singleMovie.movie.price}}:-<br>
-            Antal: {{singleMovie.amount}}
-            
-            <i class='add fas fa-plus' (click)='addSingleMovieToCart(singleMovie.movie)'></i>
-            <i class='subtract fas fa-minus' (click)='deleteOneMovieFromCart(singleMovie.movie.id)'></i><br>
-            <strong>Totalt: {{singleMovie.totalPrice}}:-</strong>
-          </p>
+          <div class="cartInfo" *ngFor='let singleMovie of cart'>
+            <div class="row">
+              <div class="col-4">
+                <img class="cartMovieImage" src="{{singleMovie.movie.imageUrl}}" alt="{{singleMovie.name}}" />
+              </div>
+              <div class="col-8">
+                <p>
+                  <strong>{{singleMovie.movie.name}}</strong>
+                  {{singleMovie.movie.price}}:-/st<br>
+                  Antal:
+                  <i class='subtractIcon fas fa-minus-circle'
+                    (click)='deleteOneMovieFromCart(singleMovie.movie.id)'></i>
+                  {{singleMovie.amount}}
+                  <i class='addIcon fas fa-plus-circle' (click)='addSingleMovieToCart(singleMovie.movie)'></i>
+                  {{singleMovie.totalPrice}}:-
+                </p>
+              </div>
+            </div>
           </div>
           <hr>
           <p><strong>Total summa: {{totalSum}}:-</strong></p>
-          <p><button class='submitButton' routerLink='/checkout'>Gå vidare</button></p>
-
-          <!-- routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }' -->
-          <!-- <a routerLink='/details' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Details</a> -->
+          <button class='checkoutButton' routerLink='/checkout'>Gå vidare</button>
         </div>
       </div>
     </div>
-    <!-- gör en liknande sen:
-    <a routerLink='/about' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>About</a>
-    <a routerLink='/details' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Details</a>
-    <a routerLink='' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Home</a> -->
   </nav>
 </header>

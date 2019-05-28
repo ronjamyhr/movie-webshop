@@ -1,9 +1,38 @@
+.heroImage {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('./../../assets/images/secondCarousel.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
 
-.heroImage{
-    height: 100vh;
-    width: 100vw;
-    background-image: url('./../../assets/images/secondCarousel.jpg');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+.presentationText {
+  margin: 5em 0;
+}
+
+.ourMoviesText {
+  margin: 0 0 1em 1.3em;
+}
+
+.movieCard {
+  min-height: 600px;
+}
+
+@media (min-width: 768px) {
+
+  .ourMoviesText {
+    margin: 0 0 1em 2.3em;
+  }
+
+}
+
+@media (min-width: 992px) {
+
+  .ourMoviesText {
+    margin: 0 0 1em 4em;
+  }
+
 }

@@ -1,27 +1,30 @@
-<li>
-  <div class="row justify-content-center">
-    <div class="moviesFrame col-12 text-center">
-      <a [routerLink]="['/details', movie.id]"><img class="movieImage" src="{{movie.imageUrl}}"
-          alt="{{movie.name}}" /></a>
-      <div class="addToCart">
-        <p>
-          <button (click)="addMovieToCart(movie)" type="button" class="addToCartBtn">Lägg till +</button>
-          <button class="movieInfoBtn" [routerLink]="['/details', movie.id]">Mer info</button>
-        </p>
+<li class="row justify-content-center movieCard">
+  <div class="col-12 moviesFrame text-center">
+    <img class="movieImage" src="{{movie.imageUrl}}" alt="{{movie.name}}" />
+
+    <div class="d-none d-lg-flex addToCartDesktop">
+      <div class="row justify-content-center">
+        <button (click)="addMovieToCart(movie)" type="button" class="col-10 addToCartBtn">Lägg till +</button>
+        <button class="col-10 movieInfoBtn" [routerLink]="['/details', movie.id]">Mer info</button>
       </div>
     </div>
-    <br>
+
   </div>
-  <div class="row align-content-between justify-content-center productInformation text-center">
-    <div class="col-12">
-      <h3>
-        {{movie.name}}
-      </h3>
-      <p>
-        {{movie.price}} sek/st
-      </p>
+
+  <div class="col-12 text-center movieInformation">
+    <h3 class="movieName">
+      {{movie.name}}
+    </h3>
+    <p class="moviePrice">
+      {{movie.price}} sek/st
+    </p>
+  </div>
+
+  <div class="col-12 text-center d-lg-none movieButtons">
+    <div class="row justify-content-center">
+      <button (click)="addMovieToCart(movie)" type="button" class="col-10 addToCartBtn">Lägg till +</button>
+      <button class="col-10 movieInfoBtn" [routerLink]="['/details', movie.id]">Mer info</button>
     </div>
-    <!-- vill göra en liknande som nedan för att komma till en ny url med bara info om den filmen vi klickat på -->
-    <!-- <a [routerLink]="['/details', korven.id]" routerLinkActive="active">Mer info</a> -->
   </div>
+
 </li>

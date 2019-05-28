@@ -1,21 +1,95 @@
-.movieImage{
+li {
+  list-style: none;
+}
+
+.movieImage {
+  object-fit: cover;
+  height: 320px;
+  width: 210px;
+}
+
+.moviesFrame {
+  /* height: 310px;
+    width: 100px; */
+  overflow: hidden;
+}
+
+.movieInformation {
+  min-height: 120px;
+}
+
+.movieName {
+  margin-top: 1em;
+}
+
+.movieButtons {
+  margin-bottom: 2em;
+}
+
+.addToCartBtn {
+  background: #ffdb6c;
+  margin: 0.2em;
+  width: 100px;
+  border: none;
+  border-radius: 2px;
+}
+
+.addToCartBtn:hover {
+  opacity: 0.3;
+}
+
+.movieInfoBtn {
+  background: #1a1a1a;
+  margin: 0.2em;
+  width: 100px;
+  border: none;
+  border-radius: 2px;
+}
+
+.movieInfoBtn:hover {
+  opacity: 0.3;
+}
+
+.movieInfoBtn {
+  color: #ffdb6c;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  padding: 0.5em;
+}
+
+.addToCartBtn {
+  color: #262626;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  padding: 0.5em;
+}
+
+@media (min-width: 768px) {
+
+  .movieInformation {
+    min-height: 130px;
+  }
+
+  .movieName {
+    font-size: 1.1rem;
+  }
+
+}
+
+@media (min-width: 992px) {
+
+  .movieImage {
     object-fit: cover;
     height: 380px;
     width: 250px;
     transition: .5s ease;
-}
+  }
 
-.moviesFrame{
-    height: 380px;
-    width: 250px;
-    overflow: hidden;
-}
+  .moviesFrame:hover .movieImage {
+    opacity: 0.5;
+  }
 
-.moviesFrame:hover .movieImage{
-    opacity: 0.3;
-}
-
-.addToCart {
+  .addToCartDesktop {
     transition: .5s ease;
     opacity: 0;
     position: absolute;
@@ -24,55 +98,24 @@
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: center;
-}
+  }
 
-.moviesFrame:hover .addToCart{
+  .moviesFrame:hover .addToCartDesktop {
     opacity: 1;
-} 
+  }
 
-li{
-    list-style: none;
-}
-
-.productInformation{
-    min-height: 100px;
-}
-
-.addToCartBtn{
-    background: #ffdb6c;
-    margin: 0.2em;
-    width: 100px;
-    border: none;
-    border-radius: 2px;
-}
-
-.addToCartBtn:hover{
-    opacity: 0.75;
-}
-
-.movieInfoBtn{
-    background: #262626;
-    margin: 0.2em;
-    width: 100px;
-    border: none;
-    border-radius: 2px;
-}
-
-.movieInfoBtn:hover{
-    opacity: 0.75;
-}
+  .movieName {
+    font-size: 1.2rem;
+  }
 
 
-p .movieInfoBtn{
-    color: #ffdb6c;
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    padding: 0.5em;
-}
+  .addToCartBtn:hover {
+    opacity: 0.7;
+  }
 
-p .addToCartBtn{
-    color: #262626;
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    padding: 0.5em;
+
+  .movieInfoBtn:hover {
+    opacity: 0.7;
+  }
+
 }
