@@ -1,19 +1,28 @@
-<main>
-  <div class="row justify-content-center">
-    <div class="col-12 heroImage">
+<main role='main'>
+  <div class='row justify-content-center'>
+    <div class='col-12 heroImage'>
     </div>
-    <div class="col-10 text-center">
+    <div class='col-10 col-md-7 col-lg-5 text-center presentationText'>
       <h1>Köp de nyaste filmerna hos oss</h1>
-      <p>Proin sit amet turpis id neque accumsan scelerisque in mollis ligula. Donec aliquam dolor sit amet sapien laoreet tristique. Vivamus consequat hendrerit leo in porttitor. Sed nisl est, tempus nec leo pulvinar, feugiat sagittis neque. Vivamus a hendrerit lectus. Morbi cursus eget tortor consectetur porttitor. Curabitur pretium quis odio ac lobortis. Nunc faucibus magna orci, facilisis aliquet nulla semper at. Vivamus congue odio sed nisi placerat dictum. Sed tincidunt lorem non est lobortis semper.</p>
+      <p>Proin sit amet turpis id neque accumsan scelerisque in mollis ligula. Donec aliquam dolor sit amet sapien
+        laoreet tristique. Vivamus consequat hendrerit leo in porttitor. Sed nisl est, tempus nec leo pulvinar, feugiat
+        sagittis neque. Vivamus a hendrerit lectus. Morbi cursus eget tortor consectetur porttitor.</p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">
+
+  <div class='row'>
+    <div class='col-12 ourMoviesText'>
       <h2>Våra filmer ></h2>
     </div>
   </div>
-  <ul class="row justify-content-center">
-    <app-productpresentation *ngFor="let product of productsArray" [movie]="product"
-      class="cardMovie col-5 col-md-4 col-lg-3"></app-productpresentation>
+
+  <ul class='row justify-content-center'>
+    <div class="col-11 col-md-11">
+      <div class="row justify-content-center">
+        <app-productpresentation *ngFor='let product of productsArray' [movie]='product'
+          class='movieCard col-6 col-md-4 col-lg-3'></app-productpresentation>
+      </div>
+    </div>
   </ul>
+
 </main>
