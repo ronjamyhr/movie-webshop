@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   showCart = false;
   totalSum: number;
   totalAmount: number;
-  navClassName: string;
+  navClassName: string = 'transparentNav';
 
 
   constructor(private interactionService: InteractionService) { }
