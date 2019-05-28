@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { DataServiceService } from '../services/data-service.service';
 import { IMovie } from '../interfaces/IMovie';
 import { MockDataService } from '../services/mock-data.service';
@@ -23,9 +23,17 @@ export class DetailsComponent implements OnInit {
     productCategory:[] 
   };
 
-  constructor(private route: ActivatedRoute, private dataService: DataServiceService, private interactionService: InteractionService) { }
+  constructor(private route: ActivatedRoute, private dataService: DataServiceService, private interactionService: InteractionService, private router: Router) { }
 
   ngOnInit() {
+
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+    });
+    
     this.route.paramMap.subscribe(myParams => {
       let id = myParams.get('id');
       console.log('Got from service ' + id);
