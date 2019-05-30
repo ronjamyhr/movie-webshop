@@ -3,6 +3,8 @@ import { IMovie } from '../interfaces/IMovie';
 import { IDataService } from '../interfaces/IDataService';
 import { Observable, of } from 'rxjs';
 import { ICartProduct } from '../interfaces/ICartProduct';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -44,19 +46,20 @@ export class MockDataService implements IDataService {
     }
   ]
 
+  constructor(private http: HttpClient) { }
 
-
-
-
-  constructor() { }
-
-  fetchMovies(): Observable<IMovie[]>{
+  fetchMovies(): Observable<IMovie[]> {
     return of(this.movies);
   }
 
 
-  fetchSingleMovie(id): Observable<IMovie>{
+  fetchSingleMovie(id): Observable<IMovie> {
     return of(this.movies[0]);
+  }
+
+
+  postOrder(order): Observable<any> {
+    return this.http.post('https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=22', order);
   }
 
 }

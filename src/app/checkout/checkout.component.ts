@@ -3,6 +3,10 @@ import { InteractionService } from '../services/interaction.service';
 import { ICartProduct } from '../interfaces/ICartProduct';
 import { IMovie } from '../interfaces/IMovie';
 import { NavigationEnd, Router } from '@angular/router';
+import { FormBuilder, Validators, FormArray} from '@angular/forms';
+import { IOrder } from '../interfaces/IOrder';
+import { DataServiceService } from '../services/data-service.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-checkout',
@@ -11,15 +15,21 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class CheckoutComponent implements OnInit {
 
-
+  timeNow = moment().format('lll');
   cart: ICartProduct[] = [];
   showCart = false;
   totalSum: number;
   totalAmount: number;
+  orderForm = this.fb.group({
+
+    emailAdress: ['', Validators.required],
+    paymentMethod: ['', Validators.required]
+ 
+  });
 
 
 
-  constructor(private interactionService: InteractionService, private router: Router) { }
+  constructor(private interactionService: InteractionService, private router: Router, private fb: FormBuilder, private dataService: DataServiceService) { }
 
   ngOnInit() {
 
@@ -112,7 +122,34 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
+  postOrder(){
 
+    let orderRowsContent = [];
+ 
+    for (let i = 0; i < this.cart.length; i++) {
+ 
+      let amount = this.cart[i].amount;
+      let id = this.cart[i].movie.id;
+ 
+      orderRowsContent.push({productId: id, amount: amount});
+ 
+    }
+ 
+    let order: IOrder = {
+      id: 0,
+      companyId: 22,
+      created: this.timeNow,
+      createdBy: this.orderForm.get('emailAdress').value,
+      paymentMethod: this.orderForm.get('paymentMethod').value,
+      totalPrice: this.totalSum,
+      status: 0,
+      orderRows: orderRowsContent
+ 
+    }
+ 
+    this.dataService.postOrder(order).subscribe()
+ 
+  }
 
 
 }

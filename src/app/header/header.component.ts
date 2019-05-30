@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { InteractionService } from '../services/interaction.service';
 import { ICartProduct } from '../interfaces/ICartProduct';
 import { IMovie } from '../interfaces/IMovie';
-import { ActivatedRoute } from '@angular/router';
+//import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',

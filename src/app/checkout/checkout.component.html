@@ -15,7 +15,23 @@
       </div>
     </div>
   </div>
-  <div>
-
-  </div>
+  
+  <section>
+      <form [formGroup]="orderForm">
+        <label for="email">Email</label>
+        <input name="email" type="text" formControlName="emailAdress">
+        <label for="swish">Payment Options</label>
+        <input name="paymentMethod" value="swish"  checked="checked" type="radio" formControlName="paymentMethod">
+        <input name="paymentMethod" value="paypal" type="radio" formControlName="paymentMethod">
+     
+        <button type="submit" [disabled]="!orderForm.valid" (click)="postOrder()">Slutför beställning</button>
+     
+      </form>
+     </section>
+     <p>
+     {{orderForm.status}}
+     
+     {{orderForm.value.emailAdress}}
+     {{orderForm.value.paymentMethod}}
+    </p>
 </article>
