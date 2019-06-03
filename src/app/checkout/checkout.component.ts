@@ -3,7 +3,7 @@ import { InteractionService } from '../services/interaction.service';
 import { ICartProduct } from '../interfaces/ICartProduct';
 import { IMovie } from '../interfaces/IMovie';
 import { NavigationEnd, Router } from '@angular/router';
-import { FormBuilder, Validators, FormArray} from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { IOrder } from '../interfaces/IOrder';
 import { DataServiceService } from '../services/data-service.service';
 import * as moment from 'moment';
@@ -20,14 +20,12 @@ export class CheckoutComponent implements OnInit {
   showCart = false;
   totalSum: number;
   totalAmount: number;
-  orderForm = this.fb.group({
+  orderForm = this.fb.group({ 
 
-    emailAdress: ['', Validators.required],
+    emailAdress: ['', [Validators.required, Validators.email]],  
     paymentMethod: ['', Validators.required]
- 
+
   });
-
-
 
   constructor(private interactionService: InteractionService, private router: Router, private fb: FormBuilder, private dataService: DataServiceService) { }
 
@@ -35,7 +33,7 @@ export class CheckoutComponent implements OnInit {
 
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
-          return;
+        return;
       }
       window.scrollTo(0, 0)
     });
@@ -52,9 +50,7 @@ export class CheckoutComponent implements OnInit {
 
       }
     );
-  
   }
-
 
   toggleDropdownCart() {
 
@@ -62,7 +58,6 @@ export class CheckoutComponent implements OnInit {
 
     this.countTotalPrice();
   }
-
 
   addSingleMovieToCart(singleMovie: IMovie) {
 
@@ -72,9 +67,7 @@ export class CheckoutComponent implements OnInit {
 
     this.countTotalAmount();
     this.countTotalPrice();
-
   }
-
 
   deleteOneMovieFromCart(id) {
 
@@ -82,9 +75,7 @@ export class CheckoutComponent implements OnInit {
 
     this.countTotalAmount();
     this.countTotalPrice();
-
   }
-
 
   print(cart) {
 
@@ -94,9 +85,7 @@ export class CheckoutComponent implements OnInit {
 
     this.countTotalAmount();
     this.countTotalPrice();
-
   }
-
 
   countTotalPrice() {
 
@@ -106,7 +95,6 @@ export class CheckoutComponent implements OnInit {
 
       // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalSum += this.cart[i].movie.price * this.cart[i].amount;
-
     }
   }
 
@@ -118,23 +106,21 @@ export class CheckoutComponent implements OnInit {
 
       // this.totalAmount blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalAmount += this.cart[i].amount;
-
     }
   }
 
-  postOrder(){
+  postOrder() {
 
     let orderRowsContent = [];
- 
+
     for (let i = 0; i < this.cart.length; i++) {
- 
+
       let amount = this.cart[i].amount;
       let id = this.cart[i].movie.id;
- 
-      orderRowsContent.push({productId: id, amount: amount});
- 
+
+      orderRowsContent.push({ productId: id, amount: amount });
     }
- 
+
     let order: IOrder = {
       id: 0,
       companyId: 22,
@@ -144,12 +130,8 @@ export class CheckoutComponent implements OnInit {
       totalPrice: this.totalSum,
       status: 0,
       orderRows: orderRowsContent
- 
     }
- 
+
     this.dataService.postOrder(order).subscribe()
- 
   }
-
-
 }

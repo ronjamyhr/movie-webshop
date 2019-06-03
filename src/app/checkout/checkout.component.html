@@ -1,37 +1,69 @@
-<article>
-  <div class="row justify-content-center">
-    <div class="col-10 text-center">
-      <h1>Min kundkorg:</h1>
-      <div *ngFor='let singleMovie of cart'>
-        <p>
-          Film: {{singleMovie.movie.name}}<br>
-          Pris: {{singleMovie.movie.price}}:-<br>
-          Antal: {{singleMovie.amount}}
+<article class="checkoutContainer">
+  <section>
 
-          <i class='add fas fa-plus' (click)='addSingleMovieToCart(singleMovie.movie)'></i>
-          <i class='subtract fas fa-minus' (click)='deleteOneMovieFromCart(singleMovie.movie.id)'></i><br>
-          <strong>Totalt: {{singleMovie.totalPrice}}:-</strong>
-        </p>
+    <div class="row justify-content-center">
+      <div class="col-10 text-center">
+        <h1>Kassan</h1>
+        <hr>
+      </div>
+
+      <div class="col-8 col-md-6 col-lg-4">
+        <h2 class="yourCart">Din varukorg</h2>
+        <div class="cartInfo" *ngFor='let singleMovie of cart'>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <img class="cartMovieImage" src="{{singleMovie.movie.imageUrl}}" alt="{{singleMovie.name}}" />
+            </div>
+            <div class="col-6">
+              <p>
+                <strong>{{singleMovie.movie.name}}</strong>
+                {{singleMovie.movie.price}}:-/st
+              </p>
+              <p>
+                Antal:
+                <i class='subtractIcon fas fa-minus-circle' (click)='deleteOneMovieFromCart(singleMovie.movie.id)'></i>
+                {{singleMovie.amount}}
+                <i class='addIcon fas fa-plus-circle' (click)='addSingleMovieToCart(singleMovie.movie)'></i>
+                {{singleMovie.totalPrice}}:-
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="col-10 text-center">
+        <p class="totalSum"><strong>Total summa: {{totalSum}}:-</strong></p>
       </div>
     </div>
-  </div>
-  
+  </section>
+
+
   <section>
-      <form [formGroup]="orderForm">
-        <label for="email">Email</label>
-        <input name="email" type="text" formControlName="emailAdress">
-        <label for="swish">Payment Options</label>
-        <input name="paymentMethod" value="swish"  checked="checked" type="radio" formControlName="paymentMethod">
-        <input name="paymentMethod" value="paypal" type="radio" formControlName="paymentMethod">
-     
-        <button type="submit" [disabled]="!orderForm.valid" (click)="postOrder()">Slutför beställning</button>
-     
-      </form>
-     </section>
-     <p>
-     {{orderForm.status}}
-     
-     {{orderForm.value.emailAdress}}
-     {{orderForm.value.paymentMethod}}
-    </p>
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <h2 class="paymentDetails">Dina uppgifter</h2>
+      </div>
+      <div class="col-8 text-center formContainer">
+
+        <form [formGroup]="orderForm" (ngSubmit)="postOrder()">
+          <label class="mailLabel" for="email">Mejladress</label><br>
+          <input required name="email" type="text" formControlName="emailAdress" class="form-control mailInput"><br>
+          <label class="paymentLabel" for="paymentMethod">Betalning</label><br>
+
+          <i class="paymentIcon fab fa-cc-visa"></i>
+          <i class="paymentIcon fab fa-cc-mastercard"></i>
+          <i class="paymentIcon fab fa-cc-amex"></i>
+          <i class="paymentIcon fab fa-cc-paypal"></i>
+          <br>
+
+          <input checked="checked" name="paymentMethod" value="card" type="radio" formControlName="paymentMethod"> Card
+          <input name="paymentMethod" value="paypal" type="radio" formControlName="paymentMethod"> PayPal<br>
+
+          <button class="finishOrderBtn" type="submit" [disabled]="!orderForm.valid">Slutför ditt köp</button>
+        </form>
+
+      </div>
+    </div>
+
+  </section>
 </article>

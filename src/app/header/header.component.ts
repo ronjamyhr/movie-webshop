@@ -47,14 +47,12 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-
   toggleDropdownCart() {
 
     this.showCart = !this.showCart;
 
     this.countTotalPrice();
   }
-
 
   addSingleMovieToCart(singleMovie: IMovie) {
 
@@ -64,9 +62,7 @@ export class HeaderComponent implements OnInit {
 
     this.countTotalAmount();
     this.countTotalPrice();
-
   }
-
 
   deleteOneMovieFromCart(id) {
 
@@ -74,9 +70,7 @@ export class HeaderComponent implements OnInit {
 
     this.countTotalAmount();
     this.countTotalPrice();
-
   }
-
 
   print(cart) {
 
@@ -86,9 +80,7 @@ export class HeaderComponent implements OnInit {
 
     this.countTotalAmount();
     this.countTotalPrice();
-
   }
-
 
   countTotalPrice() {
 
@@ -98,7 +90,6 @@ export class HeaderComponent implements OnInit {
 
       // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalSum += this.cart[i].movie.price * this.cart[i].amount;
-
     }
   }
 
@@ -110,29 +101,21 @@ export class HeaderComponent implements OnInit {
 
       // this.totalAmount blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalAmount += this.cart[i].amount;
-
     }
   }
 
+  @HostListener('window:scroll', ['$event']) onScrollEvent($event) {
 
-  @HostListener('window:scroll', ['$event']) onScrollEvent($event){
+    if ($event.path[1].scrollY >= 10) {
 
-		if ($event.path[1].scrollY >= 550){
-     
       this.navClassName = 'darkNav';
-    
-      
-		} else if($event.path[1].scrollY <= 550) {
-   
+
+
+    } else if ($event.path[1].scrollY <= 10) {
+
       this.navClassName = 'transparentNav';
-
-		}
-	}
-
-
-
-
-
+    }
+  }
 }
 
 

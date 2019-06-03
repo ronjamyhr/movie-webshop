@@ -1,57 +1,72 @@
-
-h1{
-    margin: 5em 0 1em 0;
+.detailContainer {
+  padding-top: 10em;
 }
 
-.singleMovieFrame{
+.movieNameYear {
+  margin-bottom: 1em;
+}
+
+.singleMovieImage {
+  object-fit: cover;
+  height: 400px;
+  width: 260px;
+}
+
+.singleMovieFrame {
+  overflow: hidden;
+}
+
+.movieDescriptionPrice {
+  margin: 1em 0;
+}
+
+.addToCartBtn {
+  background: #ffdb6c;
+  margin: 0.2em;
+  width: 100px;
+  border: none;
+  border-radius: 2px;
+  color: #262626;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  padding: 0.5em;
+}
+
+.goToHomepageIcon {
+  margin-top: 2em;
+  text-decoration: none;
+  font-size: 2rem;
+  color: darkgrey;
+}
+
+.goToHomepageLink {
+  text-decoration: none;
+  color: darkgrey;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+.addToCartBtn:hover,
+.goToHomepageIcon:hover,
+.goToHomepageLink:hover {
+  opacity: 0.3;
+}
+
+
+@media (min-width: 768px) {
+
+  .singleMovieImage {
+    height: 420px;
+    width: 280px;
+  }
+}
+
+
+@media (min-width: 992px) {
+
+  .singleMovieImage {
     height: 430px;
     width: 290px;
-    overflow: hidden;
-}
 
-.singleMovieImage{
-    object-fit: cover;
-    height: 430px;
-    width: 290px; 
+  }
 }
-
-.addToCartBtn{
-    background: #ffdb6c;
-    margin: 0.2em;
-    width: 100px;
-    border: none;
-    border-radius: 2px;
-}
-
-p .addToCartBtn{
-    color: #262626;
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    padding: 0.5em;
-}
-
-.dot{
-    font-size: 0.3rem;
-    color: white;
-    margin:  0 0.7em;
-    align-items: center;
-}
-
-.goToHomepageIcon{
-    margin-top: 2em;
-    text-decoration: none;
-    font-size: 2rem;
-    color: darkgrey;
-}
-
-.goToHomepageIcon:hover, .goToHomepageLink:hover{
-    opacity: 0.3;
-}
-
-.goToHomepageLink{
-    text-decoration: none;
-    color: darkgrey;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-}
-

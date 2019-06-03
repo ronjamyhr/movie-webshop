@@ -2,10 +2,9 @@
   <nav [class]="navClassName">
     <div class='row justify-content-around'>
       <div class='col-4 col-md-6 col-lg-8'>
-        <a routerLink="''"><img class='d-block bigLogo' src='../assets/images/headerLogo.png'
-            alt='Logotype of the shop' title='SEEN logo' /></a>
+        <a routerLink=""><img class='d-block bigLogo' src='../assets/images/headerLogo.png' alt='Logotype of the shop'
+            title='SEEN logo' /></a>
       </div>
-
       <div class='col-8 col-md-6 col-lg-3 text-right cartContainer'>
         <i (click)='toggleDropdownCart()' class='cartIcon fas fa-shopping-cart'></i>
         <p class='totalAmount'>{{totalAmount}}</p>
@@ -13,7 +12,7 @@
         <div class='cartDropdown text-left' *ngIf='showCart'>
           <div class="row">
             <div class="col-6">
-              <h2>Kundkorg</h2>
+              <h2>Varukorg</h2>
             </div>
             <div class="col-6 text-right"><i (click)='toggleDropdownCart()' class='closeIcon fas fa-times'></i></div>
           </div>
@@ -27,7 +26,9 @@
               <div class="col-8">
                 <p>
                   <strong>{{singleMovie.movie.name}}</strong>
-                  {{singleMovie.movie.price}}:-/st<br>
+                  {{singleMovie.movie.price}}:-/st
+                </p>
+                <p>
                   Antal:
                   <i class='subtractIcon fas fa-minus-circle'
                     (click)='deleteOneMovieFromCart(singleMovie.movie.id)'></i>
@@ -40,7 +41,7 @@
           </div>
           <hr>
           <p><strong>Total summa: {{totalSum}}:-</strong></p>
-          <button class='checkoutButton' routerLink='/checkout'>Gå vidare</button>
+          <button class='checkoutButton' routerLink='/checkout'>Till kassan</button>
         </div>
       </div>
     </div>

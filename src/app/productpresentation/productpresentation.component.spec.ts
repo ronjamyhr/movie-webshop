@@ -10,10 +10,10 @@ describe('ProductpresentationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductpresentationComponent, TestHostComponent ],
-      imports: [ RouterTestingModule ]
+      declarations: [ProductpresentationComponent, TestHostComponent],
+      imports: [RouterTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -46,13 +46,12 @@ describe('ProductpresentationComponent', () => {
     template: '<app-productpresentation movie="product"></app-productpresentation>'
   })
 
-  class TestHostComponent{
+  class TestHostComponent {
     movie: IMovie;
 
-    setInput(newInput: IMovie){
+    setInput(newInput: IMovie) {
       this.movie = newInput;
     }
   }
-
 
 });

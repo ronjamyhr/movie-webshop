@@ -1,5 +1,5 @@
-export interface IOrder{
-    id: number; //0 
+export interface IOrder {
+    id: number; 
     companyId: number;
     created: string;
     createdBy: string;
@@ -9,7 +9,7 @@ export interface IOrder{
     orderRows: IOrderRow[];
 }
 
-export interface IOrderRow{
+export interface IOrderRow {
     productId: number;
     amount: number;
 }

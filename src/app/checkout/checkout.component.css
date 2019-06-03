@@ -1,3 +1,85 @@
-h1{
-    margin: 5em 0 1em 0;
+.checkoutContainer {
+  padding-top: 10em;
+}
+
+.yourCart{
+  margin: 2em 0 1em 0;
+  font-size: 1.3rem;
+}
+
+.cartInfo{
+  margin: 2em 0;
+}
+
+.cartMovieImage {
+  object-fit: cover;
+  height: 200px;
+  width: 130px;
+}
+
+.addIcon {
+  padding: 0.3em;
+  cursor: pointer;
+}
+
+.subtractIcon {
+  padding: 0.3em;
+  cursor: pointer;
+}
+
+.totalSum{
+  font-size: 1.4rem;
+}
+
+.formContainer{
+  background-color: #474646;
+  border-radius: 3px;
+  min-height: 300px;
+  padding: 2em;
+}
+
+.paymentDetails{
+  margin: 2em 0 1em 0;
+  font-size: 1.3rem;
+}
+
+.mailLabel,
+.paymentLabel{
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+.mailInput{
+  border: none;
+  border-radius: 1px;
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  padding: 0.2em;
+}
+
+.errorMessage{
+  color: red;
+  font-family: 'Lato', sans-serif;
+}
+
+.paymentIcon{
+  font-size: 2rem;
+  margin: 0.2em;
+}
+
+.finishOrderBtn {
+  background: #1b1a1a;
+  margin: 0.2em;
+  width: 150px;
+  border: none;
+  border-radius: 2px;
+  color: #ffdb6c;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  padding: 1em;
+}
+
+.finishOrderBtn:hover {
+  opacity: 0.75;
 }
