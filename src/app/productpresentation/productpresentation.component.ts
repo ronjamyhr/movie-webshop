@@ -16,7 +16,7 @@ export class ProductpresentationComponent implements OnInit {
   ngOnInit() {
   }
 
-  addMovieToCart(movie){
+  addMovieToCart(movie) {
     this.interactionService.sendCart(movie);
   }
 

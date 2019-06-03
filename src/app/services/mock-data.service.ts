@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
-import { IMovie } from '../interfaces/IMovie';
-import { IDataService } from '../interfaces/IDataService';
-import { Observable, of } from 'rxjs';
-import { ICartProduct } from '../interfaces/ICartProduct';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { IMovie } from "../interfaces/IMovie";
+import { IDataService } from "../interfaces/IDataService";
+import { Observable, of } from "rxjs";
+import { ICartProduct } from "../interfaces/ICartProduct";
+import { HttpClient } from "@angular/common/http";
+import { IOrder, IOrderRow } from '../interfaces/IOrder';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class MockDataService implements IDataService {
 
@@ -46,20 +47,39 @@ export class MockDataService implements IDataService {
     }
   ]
 
-  constructor(private http: HttpClient) { }
+  orderRowsContent: IOrderRow[] = [
+    {
+      productId: 76,
+      amount: 1
+
+    }
+  ]
+
+  order: IOrder[] = [
+    {
+      id: 0,
+      companyId: 22,
+      created: "June 3, 2019 3:24 PM",
+      createdBy: "en@mail.se",
+      paymentMethod: "card",
+      totalPrice: 199,
+      status: 1,
+      orderRows: this.orderRowsContent
+    }
+  ]
+
+  constructor() { }
 
   fetchMovies(): Observable<IMovie[]> {
     return of(this.movies);
   }
 
-
   fetchSingleMovie(id): Observable<IMovie> {
     return of(this.movies[0]);
   }
 
-
-  postOrder(order): Observable<any> {
-    return this.http.post('https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=22', order);
+  postOrder(order): Observable<IOrder> {
+    return of(this.order[0]);
   }
 
 }

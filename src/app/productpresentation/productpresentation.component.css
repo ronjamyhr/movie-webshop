@@ -32,10 +32,11 @@ li {
   width: 100px;
   border: none;
   border-radius: 2px;
-}
-
-.addToCartBtn:hover {
-  opacity: 0.3;
+  color: #262626;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  padding: 0.5em;
+  cursor: pointer;
 }
 
 .movieInfoBtn {
@@ -44,24 +45,16 @@ li {
   width: 100px;
   border: none;
   border-radius: 2px;
-}
-
-.movieInfoBtn:hover {
-  opacity: 0.3;
-}
-
-.movieInfoBtn {
   color: #ffdb6c;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   padding: 0.5em;
+  cursor: pointer;
 }
 
-.addToCartBtn {
-  color: #262626;
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  padding: 0.5em;
+.movieInfoBtn:hover,
+.addToCartBtn:hover {
+  opacity: 0.3;
 }
 
 @media (min-width: 768px) {

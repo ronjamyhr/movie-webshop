@@ -9,9 +9,7 @@ import { ICartProduct } from '../interfaces/ICartProduct';
 export class InteractionService {
 
   private movieSource = new Subject<ICartProduct[]>();
-
   cart: ICartProduct[] = [];
-
   movieSource$ = this.movieSource.asObservable();
 
   constructor() { }
@@ -40,7 +38,6 @@ export class InteractionService {
     this.saveCartToLocalStorage();
   }
 
-
   delete(id: number) {
     for (let i = 0; i < this.cart.length; i++) {
       if (this.cart[i].movie.id === id) {
@@ -59,13 +56,10 @@ export class InteractionService {
     this.saveCartToLocalStorage();
   }
 
-
   saveCartToLocalStorage() {
 
     localStorage.setItem('myCartLocalStorage', JSON.stringify(this.cart));
-
   }
-
 
   getCartFromLocalStorage() {
 
@@ -80,14 +74,9 @@ export class InteractionService {
     this.getCart();
   }
 
-
   getCart() {
 
     return this.cart;
-
   }
-
-
-
 
 }

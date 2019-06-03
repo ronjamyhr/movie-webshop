@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { DataServiceService } from '../services/data-service.service';
 import { IMovie } from '../interfaces/IMovie';
-import { MockDataService } from '../services/mock-data.service';
+//import { MockDataService } from '../services/mock-data.service';
 import { InteractionService } from '../services/interaction.service';
 
 @Component({
@@ -13,14 +13,14 @@ import { InteractionService } from '../services/interaction.service';
 export class DetailsComponent implements OnInit {
 
   singleMovie: IMovie = {
-    id:0,
+    id: 0,
     description: '',
-    name:'',
+    name: '',
     price: 0,
     imageUrl: '',
     year: 0,
-    added:'',
-    productCategory:[] 
+    added: '',
+    productCategory: []
   };
 
   constructor(private route: ActivatedRoute, private dataService: DataServiceService, private interactionService: InteractionService, private router: Router) { }
@@ -29,26 +29,23 @@ export class DetailsComponent implements OnInit {
 
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
-          return;
+        return;
       }
       window.scrollTo(0, 0)
     });
-    
+
     this.route.paramMap.subscribe(myParams => {
       let id = myParams.get('id');
       console.log('Got from service ' + id);
       this.dataService.fetchSingleMovie(id).subscribe((data) => {
         this.singleMovie = data;
       });
-      // this.dataService.fetchMovie(id).subscribe((data) => { this.singleMovie = data; });
     });
   }
 
+  addMovieToCart(movie) {
 
-  addMovieToCart(movie){
     this.interactionService.sendCart(movie);
-
-    console.log('Klick');
   }
 
 }

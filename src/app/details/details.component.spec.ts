@@ -12,19 +12,18 @@ describe('DetailsComponent', () => {
   let fixture: ComponentFixture<DetailsComponent>;
   let activatedRoute = new ActivatedRouteStub({ id: 76 });
 
-
   beforeEach(async(() => {
     activatedRoute.setParamMap({ id: 76 });
     TestBed.configureTestingModule({
-      declarations: [ DetailsComponent ],
-      imports: [ RouterTestingModule, HttpClientModule ],
-      providers: [ 
+      declarations: [DetailsComponent],
+      imports: [RouterTestingModule, HttpClientModule],
+      providers: [
         { provide: activatedRoute, useValue: activatedRoute },
         { provide: DataServiceService, useClass: MockDataService }
       ]
 
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
