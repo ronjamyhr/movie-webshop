@@ -78,8 +78,26 @@
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   padding: 1em;
+  cursor: pointer;
+}
+
+.finishOrderBtnInvalid{
+  background: grey;
+  margin: 0.2em;
+  width: 150px;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  padding: 1em;
+  cursor: not-allowed;
 }
 
 .finishOrderBtn:hover {
   opacity: 0.75;
+}
+
+.paymentMethod{
+  color: black;
 }

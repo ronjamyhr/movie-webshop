@@ -45,9 +45,20 @@
       </div>
       <div class="col-8 text-center formContainer">
 
-        <form [formGroup]="orderForm" (ngSubmit)="postOrder()">
+        <form [formGroup]="orderForm" #formDir="ngForm" (ngSubmit)="postOrder()">
           <label class="mailLabel" for="email">Mejladress</label><br>
-          <input required name="email" type="text" formControlName="emailAdress" class="form-control mailInput"><br>
+          <input name="email" type="text" formControlName="emailAdress" class="mailInput"><br>
+
+          <div
+            *ngIf="orderForm.get('emailAdress').invalid && (orderForm.get('emailAdress').dirty || orderForm.get('emailAdress').touched || formDir.submitted)">
+            <div *ngIf="orderForm.get('emailAdress').errors.required">
+              <p class="errorMessage">Du måste fylla i mejladress</p>
+            </div>
+            <div *ngIf="orderForm.get('emailAdress').errors.email">
+              <p class="errorMessage">Du måste skriva in en mejladress</p>
+            </div>
+          </div>
+
           <label class="paymentLabel" for="paymentMethod">Betalning</label><br>
 
           <i class="paymentIcon fab fa-cc-visa"></i>
@@ -56,10 +67,20 @@
           <i class="paymentIcon fab fa-cc-paypal"></i>
           <br>
 
-          <input checked="checked" name="paymentMethod" value="card" type="radio" formControlName="paymentMethod"> Card
-          <input name="paymentMethod" value="paypal" type="radio" formControlName="paymentMethod"> PayPal<br>
+          <select class="paymentMethod" formControlName="paymentMethod">
+            <option selected="selected" value="">Betalningsmetod:</option>
+            <option value="card">Card</option>
+            <option value="paypal">PayPal</option>
+          </select>
 
-          <button class="finishOrderBtn" type="submit" [disabled]="!orderForm.valid">Slutför ditt köp</button>
+          <div *ngIf="orderForm.get('paymentMethod').invalid && formDir.submitted">
+            <div *ngIf="orderForm.get('paymentMethod').errors.required">
+              <p class="errorMessage">Du måste välja betalningsmetod</p>
+            </div>
+          </div><br>
+
+          <button class="finishOrderBtn" type="submit">Slutför ditt köp</button>
+          <!-- [disabled]="!orderForm.valid" -->
         </form>
 
       </div>
