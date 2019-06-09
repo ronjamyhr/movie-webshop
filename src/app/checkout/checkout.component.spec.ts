@@ -11,7 +11,7 @@ describe('CheckoutComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CheckoutComponent],
-      imports: [RouterTestingModule, HttpClientModule],
+      imports: [RouterTestingModule, HttpClientModule, ReactiveFormsModule, FormsModule],
       providers: [ FormBuilder ]
     })
       .compileComponents();

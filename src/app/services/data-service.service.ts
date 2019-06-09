@@ -22,6 +22,7 @@ export class DataServiceService {
   }
 
   postOrder(order): Observable<IOrder> {
+    
     return this.http.post<IOrder>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', order);
   }
 
