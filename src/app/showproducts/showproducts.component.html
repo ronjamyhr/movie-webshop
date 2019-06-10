@@ -1,9 +1,17 @@
 <main role='main'>
+
+
   <div class='row justify-content-center'>
     <div class='col-12 heroImage'>
+      <div class="row angleDownContainer justify-content-center align-items-end">
+        <div class="col-10 text-center">
+          <a><i class="angleDownIcon fas fa-angle-down"></i></a>
+        </div>
+      </div>
     </div>
+
     <div class='col-10 col-md-7 col-lg-5 text-center presentationText'>
-      <h1>Köp de nyaste filmerna hos oss</h1>
+      <h1 class="indexHeading">Köp de nyaste filmerna hos oss</h1>
       <p>Proin sit amet turpis id neque accumsan scelerisque in mollis ligula. Donec aliquam dolor sit amet sapien
         laoreet tristique. Vivamus consequat hendrerit leo in porttitor. Sed nisl est, tempus nec leo pulvinar, feugiat
         sagittis neque. Vivamus a hendrerit lectus. Morbi cursus eget tortor consectetur porttitor.</p>
@@ -24,5 +32,14 @@
       </div>
     </div>
   </ul>
+
+  <div *ngIf="backToTop">
+
+    <a (click)="scrollToTop()" class="backToTop"><i class="backToTopIcon fas fa-chevron-up"></i></a>
+
+
+  </div>
+
+
 
 </main>

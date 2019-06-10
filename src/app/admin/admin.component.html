@@ -1,0 +1,17 @@
+<article class="adminContainer">
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <h1 class="hej">Ordrar:</h1>
+      <div *ngFor="let order of orders">
+        <p>ID: {{ order.id }}, Företags ID: {{ order.companyId}} Skapad av: {{ order.createdBy }}, Skapad:
+          {{ order.created }}, Totalpris:
+          {{ order.totalPrice}}:- </p>
+        <p *ngFor="let orderRow of order.orderRows">
+          Produkt ID: {{ orderRow.productId }} Antal: {{orderRow.amount}}
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</article>

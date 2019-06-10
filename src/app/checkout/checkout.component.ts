@@ -20,17 +20,12 @@ export class CheckoutComponent implements OnInit {
   showCart = false;
   totalSum: number;
   totalAmount: number;
-  orderForm = this.fb.group({ 
+  orderForm = this.fb.group({
 
-    emailAdress: ['', [Validators.required, Validators.email]],  
+    emailAdress: ['', [Validators.required, Validators.email]],
     paymentMethod: ['', Validators.required]
-    // paymentMethod: ['', Validators.min(1)]
 
   });
-  // paymentOptions = [
-  //   {id: -1, text: 'Välj betalsätt'}, {id: 1, text: 'Credit card'}, {id: 2, text: 'Paypal'}, {id: 3, text: 'Swish'}
-  // ];
-  // validEmail: boolean = false;
 
   constructor(private interactionService: InteractionService, private router: Router, private fb: FormBuilder, private dataService: DataServiceService) { }
 
@@ -55,9 +50,6 @@ export class CheckoutComponent implements OnInit {
 
       }
     );
-
-
-    // this.orderForm.get('paymentMethod').setValue(this.paymentOptions[0].id);
   }
 
   toggleDropdownCart() {
@@ -86,8 +78,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   print(cart) {
-
-    //console.log('movie: ' + cart);
 
     this.cart = cart;
 
@@ -122,48 +112,39 @@ export class CheckoutComponent implements OnInit {
     if (this.orderForm.valid) {
 
 
-    let orderRowsContent = [];
+      let orderRowsContent = [];
 
-    for (let i = 0; i < this.cart.length; i++) {
+      for (let i = 0; i < this.cart.length; i++) {
 
-      let amount = this.cart[i].amount;
-      let id = this.cart[i].movie.id;
+        let amount = this.cart[i].amount;
+        let id = this.cart[i].movie.id;
 
-      orderRowsContent.push({ productId: id, amount: amount });
+        orderRowsContent.push({ productId: id, amount: amount });
+      }
+
+      let order: IOrder = {
+        id: 0,
+        companyId: 22,
+        created: this.timeNow,
+        createdBy: this.orderForm.get('emailAdress').value,
+        paymentMethod: this.orderForm.get('paymentMethod').value,
+        totalPrice: this.totalSum,
+        status: 0,
+        orderRows: orderRowsContent
+      }
+
+      this.dataService.postOrder(order).subscribe();
+
+      this.clearCart();
+
+      this.router.navigate(['/admin']);
+
     }
-
-    let order: IOrder = {
-      id: 0,
-      companyId: 22,
-      created: this.timeNow,
-      createdBy: this.orderForm.get('emailAdress').value,
-      paymentMethod: this.orderForm.get('paymentMethod').value,
-      totalPrice: this.totalSum,
-      status: 0,
-      orderRows: orderRowsContent
-    }
-
-    this.dataService.postOrder(order).subscribe();
-
-    this.interactionService.clearCartLocalstorage();
-
-    this.router.navigate(['/']);
-  
-    } else {
-      alert('NOT VALID');
-    }
-
-
   }
 
-  // clearCartLocalstorage(){
-  //   this.cart.splice(0, this.cart.length);
-  //   this.interactionService.saveCartToLocalStorage();
-  //   this.cart = this.interactionService.getCart();
-  
-   
-  //   this.countTotalAmount();
-  //   this.countTotalPrice();
+  clearCart() {
+    this.interactionService.clearCartLocalstorage();
+  }
 
-  // }
+
 }

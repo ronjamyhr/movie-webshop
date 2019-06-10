@@ -101,3 +101,22 @@
 .paymentMethod{
   color: black;
 }
+
+.goToHomepageIcon {
+  margin-top: 2em;
+  text-decoration: none;
+  font-size: 2rem;
+  color: darkgrey;
+}
+
+.goToHomepageLink {
+  text-decoration: none;
+  color: darkgrey;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+.goToHomepageIcon:hover,
+.goToHomepageLink:hover {
+  opacity: 0.3;
+}

@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DetailsComponent } from './details/details.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AdminComponent } from './admin/admin.component';
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -22,7 +24,8 @@ describe('AppComponent', () => {
         ProductpresentationComponent,
         HeaderComponent,
         FooterComponent,
-        DetailsComponent
+        DetailsComponent,
+        AdminComponent
       ],
     })
     .compileComponents();

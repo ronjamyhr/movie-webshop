@@ -81,12 +81,10 @@ export class InteractionService {
 
   clearCartLocalstorage(){
     this.cart.splice(0, this.cart.length);
-
   
     this.movieSource.next(this.cart);
 
     this.saveCartToLocalStorage();
-
   }
 
 }
