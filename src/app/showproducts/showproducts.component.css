@@ -1,3 +1,63 @@
+.backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  cursor: pointer;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease;
+}
+
+.backToTopIcon {
+  color: white;
+  opacity: 0.5;
+  margin: 0;
+  position: relative;
+  left: 16px;
+  top: 13px;
+  font-size: 19px;
+  transition: all 0.3s ease;
+}
+
+.backToTop:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.backToTopIcon:hover {
+  color: white;
+  opacity: 0.9;
+  top: 5px;
+}
+
+.angleDownContainer {
+  height: 98%;
+}
+
+.angleDownIcon {
+  font-size: 2.8rem;
+  opacity: 0.5;
+  animation-name: bounce;
+  position: relative;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+
+}
+
+@keyframes bounce {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: 10px;
+  }
+}
+
 .heroImage {
   height: 100vh;
   width: 100vw;
@@ -19,6 +79,29 @@
 
 .movieCard {
   min-height: 600px;
+}
+
+.indexHeading:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  height: 1em;
+  width: 100%;
+  border-bottom: 1px solid;
+  margin-top: 10px;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0, 1);
+  transform: scale(0, 1);
+
+}
+
+.indexHeading:hover:after {
+  opacity: 0.5;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 @media (min-width: 768px) {

@@ -24,13 +24,8 @@ export class CheckoutComponent implements OnInit {
 
     emailAdress: ['', [Validators.required, Validators.email]],  
     paymentMethod: ['', Validators.required]
-    // paymentMethod: ['', Validators.min(1)]
 
   });
-  // paymentOptions = [
-  //   {id: -1, text: 'Välj betalsätt'}, {id: 1, text: 'Credit card'}, {id: 2, text: 'Paypal'}, {id: 3, text: 'Swish'}
-  // ];
-  // validEmail: boolean = false;
 
   constructor(private interactionService: InteractionService, private router: Router, private fb: FormBuilder, private dataService: DataServiceService) { }
 
@@ -55,9 +50,6 @@ export class CheckoutComponent implements OnInit {
 
       }
     );
-
-
-    // this.orderForm.get('paymentMethod').setValue(this.paymentOptions[0].id);
   }
 
   toggleDropdownCart() {
@@ -86,8 +78,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   print(cart) {
-
-    //console.log('movie: ' + cart);
 
     this.cart = cart;
 
@@ -147,23 +137,8 @@ export class CheckoutComponent implements OnInit {
 
     this.interactionService.clearCartLocalstorage();
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/admin']);
   
-    } else {
-      alert('NOT VALID');
-    }
-
-
+    } 
   }
-
-  // clearCartLocalstorage(){
-  //   this.cart.splice(0, this.cart.length);
-  //   this.interactionService.saveCartToLocalStorage();
-  //   this.cart = this.interactionService.getCart();
-  
-   
-  //   this.countTotalAmount();
-  //   this.countTotalPrice();
-
-  // }
 }
