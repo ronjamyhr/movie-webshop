@@ -1,0 +1,36 @@
+.footer {
+  height: 150px;
+  background-color: #262626;
+  padding-bottom: 1em;
+}
+
+.brandIcons {
+  font-size: 1.5rem;
+}
+
+.facebookIcon,
+.instagramIcon,
+.imdbIcon {
+  color: darkgrey;
+}
+
+.facebookIcon:hover {
+  color: #ff905f;
+  opacity: 0.8;
+}
+
+.instagramIcon:hover {
+  color: #ff4868;
+  opacity: 0.8;
+}
+
+.imdbIcon:hover {
+  color: #ff736d;
+  opacity: 0.8;
+}
+
+.footerText {
+  color: darkgrey;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
