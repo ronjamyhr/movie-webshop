@@ -137,7 +137,7 @@ export class CheckoutComponent implements OnInit {
 
       this.clearCart();
 
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/finish']);
 
     }
   }

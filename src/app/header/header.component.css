@@ -20,13 +20,40 @@
   float: left;
 }
 
+.adminIcon {
+  margin: 0 0.2em 0.2em 0;
+}
+
+.adminIcon:hover {
+  opacity: 0.5;
+}
+
 .cartIcon {
-  padding-top: 1em;
-  margin-right: 0.1em;
+  position: relative;
   color: #ffdb6c;
   font-size: 1.5rem;
+  padding-top: 1em;
   cursor: pointer;
+  margin-right: 1.3em;
 }
+
+.totalAmount {
+  background-color: white;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  display: block;
+  position: absolute;
+  text-align: center;
+  line-height: 1.7em;
+  top: 0.7em;
+  right: -1.2em;
+  width: 1.7em;
+  height: 1.7em;
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
 
 .closeIcon {
   font-size: 1.5rem;
@@ -78,7 +105,24 @@
   opacity: 0.75;
 }
 
-.totalAmount {
-  display: inline-block;
-  margin-right: 1em;
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {
+
+
+  .cartIcon {
+    margin-right: 1em;
+    font-size: 1.7rem;
+  }
+
+
+  .totalAmount {
+    line-height: 2em;
+    top: 0.8em;
+    right: -1.5em;
+    width: 2em;
+    height: 2em;
+  }
+
+
 }
