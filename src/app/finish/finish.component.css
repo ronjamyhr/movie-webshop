@@ -1,0 +1,28 @@
+.finishContainer {
+  padding-top: 10em;
+}
+
+.finishIconContainer{
+    margin-bottom: 3em;
+}
+
+.finishIcon{
+    font-size: 15rem;
+    opacity: 0.5;
+    color: #0e9243;
+}
+
+h1{
+    margin-bottom: 1em;
+}
+
+.goToHomepageLink {
+    text-decoration: none;
+    color: darkgrey;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+  }
+  
+  .goToHomepageLink:hover {
+    opacity: 0.3;
+  }
