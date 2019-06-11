@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FinishComponent } from './finish.component';
+import { ErrorComponent } from './error.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
-describe('FinishComponent', () => {
-  let component: FinishComponent;
-  let fixture: ComponentFixture<FinishComponent>;
+describe('ErrorComponent', () => {
+  let component: ErrorComponent;
+  let fixture: ComponentFixture<ErrorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [FinishComponent],
+      declarations: [ErrorComponent],
       imports: [RouterTestingModule]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FinishComponent);
+    fixture = TestBed.createComponent(ErrorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -12,6 +12,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
 import { FinishComponent } from './finish/finish.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FinishComponent } from './finish/finish.component';
     CheckoutComponent,
     AdminComponent,
     FinishComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

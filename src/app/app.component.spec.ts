@@ -9,6 +9,8 @@ import { DetailsComponent } from './details/details.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
 import { FinishComponent } from './finish/finish.component';
+import { ErrorComponent } from './error/error.component';
+
 
 
 describe('AppComponent', () => {
@@ -27,7 +29,8 @@ describe('AppComponent', () => {
         FooterComponent,
         DetailsComponent,
         AdminComponent,
-        FinishComponent
+        FinishComponent,
+        ErrorComponent
       ],
     })
     .compileComponents();
