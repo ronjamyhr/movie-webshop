@@ -16,6 +16,14 @@ h1 {
   margin-bottom: 1em;
 }
 
+p {
+  margin: 0;
+}
+
+.link {
+  margin-top: 3em;
+}
+
 .goToHomepageLink {
   text-decoration: none;
   color: darkgrey;

@@ -36,7 +36,7 @@ export class DetailsComponent implements OnInit {
 
     this.route.paramMap.subscribe(myParams => {
       let id = myParams.get('id');
-      console.log('Got from service ' + id);
+      // console.log('Got from service ' + id);
       this.dataService.fetchSingleMovie(id).subscribe((data) => {
         this.singleMovie = data;
       });

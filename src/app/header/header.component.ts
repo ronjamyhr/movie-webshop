@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { InteractionService } from '../services/interaction.service';
 import { ICartProduct } from '../interfaces/ICartProduct';
 import { IMovie } from '../interfaces/IMovie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,7 @@ export class HeaderComponent implements OnInit {
   navClassName: string = 'transparentNav';
 
 
-  constructor(private interactionService: InteractionService) { }
+  constructor(private interactionService: InteractionService, private router: Router) { }
 
   ngOnInit() {
 
@@ -96,11 +97,16 @@ export class HeaderComponent implements OnInit {
 
       this.navClassName = 'darkNav';
 
-
     } else if ($event.path[1].scrollY <= 10) {
 
       this.navClassName = 'transparentNav';
     }
+  }
+
+  goToCheckout() {
+    this.router.navigate(['/checkout']);
+
+    this.showCart = false;
   }
 }
 

@@ -7,12 +7,8 @@
   color: white;
 }
 
-.row {
-  /* margin: 0 auto;
-  padding: 0 auto; */
-}
-
 body {
+  overflow-x: hidden;
   background: rgb(67, 67, 67);
   background: linear-gradient(180deg, rgba(67, 67, 67, 1) 2%, rgba(38, 38, 38, 1) 10%, rgba(22, 22, 22, 1) 100%);
 }

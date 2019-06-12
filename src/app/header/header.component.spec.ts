@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
 import { MockDataService } from '../services/mock-data.service';
 import { HttpClient } from "@angular/common/http";
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -9,7 +10,8 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderComponent]
+      declarations: [HeaderComponent],
+      imports: [RouterTestingModule]
     })
       .compileComponents();
   }));
@@ -37,7 +39,7 @@ describe('HeaderComponent', () => {
 
       expect(component.cart.length).toEqual(1);
     });
-    
+
   });
 
 
@@ -77,7 +79,7 @@ describe('HeaderComponent', () => {
 
       component.addSingleMovieToCart(movies[0]);
       component.addSingleMovieToCart(movies[1]);
-      
+
       expect(component.cart.length).toEqual(2);
     });
 
@@ -92,7 +94,7 @@ describe('HeaderComponent', () => {
       component.addSingleMovieToCart(movies[0]);
       component.addSingleMovieToCart(movies[1]);
       component.addSingleMovieToCart(movies[0]);
-      
+
       expect(component.cart.length).toEqual(2);
       expect(component.cart[0].amount).toBe(2);
     });
@@ -107,7 +109,7 @@ describe('HeaderComponent', () => {
 
       component.addSingleMovieToCart(movies[0]);
       component.deleteOneMovieFromCart(76);
-      
+
       expect(component.cart.length).toEqual(0);
     });
 
@@ -123,7 +125,7 @@ describe('HeaderComponent', () => {
       expect(component.totalSum).toEqual(0);
 
       component.addSingleMovieToCart(movies[0]);
-      component.addSingleMovieToCart(movies[0]);  
+      component.addSingleMovieToCart(movies[0]);
       component.countTotalPrice();
 
       expect(component.totalSum).toEqual(398);
