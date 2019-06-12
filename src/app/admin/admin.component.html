@@ -1,17 +1,32 @@
-<article class="adminContainer">
-  <div class="row justify-content-center">
-    <div class="col-10 col-md-8 col-lg-6">
-      <h1 class="hej">Ordrar:</h1>
-      <div *ngFor="let order of orders">
-        <p>ID: {{ order.id }}, Företags ID: {{ order.companyId}} Skapad av: {{ order.createdBy }}, Skapad:
-          {{ order.created }}, Totalpris:
-          {{ order.totalPrice}}:- </p>
-        <p *ngFor="let orderRow of order.orderRows">
-          Produkt ID: {{ orderRow.productId }} Antal: {{orderRow.amount}}
-        </p>
+<main role='main'>
+  <article class="adminContainer">
+    <div class="row justify-content-center">
+      <div class="col-10 ordersContainer">
+        <h1 class="">Ordrar:</h1>
 
+
+        <div class="orders" *ngFor="let orders of extendedOrders">
+
+          <div *ngFor="let name of orders.movieNames">
+            <p>Film: {{ name }}</p>
+          </div>
+
+          <div *ngFor="let orderRow of orders.order.orderRows">
+            <p>Produkt ID: {{ orderRow.productId }}</p>
+            <p> Antal: {{ orderRow.amount }}</p>
+          </div>
+
+          <p>ID: {{ orders.order.id }}</p>
+          <p>Företags ID: {{ orders.order.companyId }}</p>
+          <p>Skapad av: {{ orders.order.createdBy }}</p>
+          <p>Skapad: {{ orders.order.created }}</p>
+          <p>Totalpris: {{ orders.order.totalPrice }}:- </p>
+
+        </div>
       </div>
-
     </div>
-  </div>
-</article>
+    <div *ngIf="backToTop">
+      <a (click)="scrollToTop()" class="backToTop"><i class="backToTopIcon fas fa-chevron-up"></i></a>
+    </div>
+  </article>
+</main>

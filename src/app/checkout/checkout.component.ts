@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { InteractionService } from '../services/interaction.service';
 import { ICartProduct } from '../interfaces/ICartProduct';
 import { IMovie } from '../interfaces/IMovie';
@@ -15,6 +15,7 @@ import * as moment from 'moment';
 })
 export class CheckoutComponent implements OnInit {
 
+  backToTop = false;
   timeNow = moment().format('lll');
   cart: ICartProduct[] = [];
   showCart = false;
@@ -144,6 +145,27 @@ export class CheckoutComponent implements OnInit {
 
   clearCart() {
     this.interactionService.clearCartLocalstorage();
+  }
+
+  @HostListener('window:scroll', ['$event']) onScrollEvent($event) {
+
+    if ($event.path[1].scrollY >= 100) {
+
+      this.backToTop = true;
+
+
+    } else if ($event.path[1].scrollY <= 100) {
+
+      this.backToTop = false;
+    }
+  }
+
+  scrollToTop() {
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   }
 
 
