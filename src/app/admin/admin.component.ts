@@ -11,7 +11,7 @@ import { IMovie } from '../interfaces/IMovie';
 })
 export class AdminComponent implements OnInit {
 
-  orders: IOrder[];
+  //orders: IOrder[];
   extendedOrders: IExtendedOrder[] = [];
   backToTop = false;
 
@@ -28,12 +28,12 @@ export class AdminComponent implements OnInit {
 
     this.dataService.fetchOrder().subscribe((orderData) => {
       
-      this.orders = orderData;
+      //this.orders = orderData;
 
-      for (let i = 0; i < this.orders.length; i++) {
-        this.extendedOrders.push({ order: this.orders[i], movieNames: []});
+      for (let i = 0; i < orderData.length; i++) {
+        this.extendedOrders.push({ order: orderData[i], movieNames: []});
 
-        let orderRows = this.orders[i].orderRows;
+        let orderRows = orderData[i].orderRows;
 
         for (let j = 0; j < orderRows.length; j++) {
           let productId = orderRows[j].productId;
