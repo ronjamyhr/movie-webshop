@@ -11,13 +11,11 @@
 
       <div class='col-8 col-md-6 col-lg-3 text-right cartContainer'>
         <a routerLink='/admin'><i class="adminIcon fas fa-user"></i></a>
-
         <i (click)='toggleDropdownCart()' class='cartIcon fas fa-shopping-cart'>
           <p class='totalAmount'>{{totalAmount}}</p>
         </i>
-
-
-        <div class='cartDropdown text-left' *ngIf='showCart'>
+<!-- *ngIf='showCart' -->
+        <div class='cartDropdown text-left hideCart'>
           <div class="row">
             <div class="col-6">
               <h2>Varukorg</h2>
@@ -51,11 +49,12 @@
           <p><strong>Total summa: {{totalSum}}:-</strong></p>
 
             <button (click)="goToCheckout()" *ngIf='totalSum > 0' class='checkoutButton'>Till kassan</button>
-            <!-- routerLink='/checkout' -->
         </div>
       </div>
 
     </div>
 
   </nav>
+
+ 
 </header>

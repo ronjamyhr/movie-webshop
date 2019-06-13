@@ -3,6 +3,7 @@ import { InteractionService } from '../services/interaction.service';
 import { ICartProduct } from '../interfaces/ICartProduct';
 import { IMovie } from '../interfaces/IMovie';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   cart: ICartProduct[] = [];
-  showCart = false;
+  // showCart = false;
   totalSum: number;
   totalAmount: number;
   navClassName: string = 'transparentNav';
@@ -22,11 +23,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
 
+
     this.interactionService.getCartFromLocalStorage();
     this.cart = this.interactionService.getCart();
     this.countTotalAmount();
     this.countTotalPrice();
-
 
     this.interactionService.movieSource$.subscribe(
       cart => {
@@ -34,11 +35,30 @@ export class HeaderComponent implements OnInit {
 
       }
     );
+
+    $(document).on('click', function (e) {
+      if ($(e.target).closest(".cartContainer").length === 0) {
+        $(".cartDropdown").removeClass("showCart");
+        $(".cartDropdown").addClass("hideCart");
+      }
+    });
+
   }
 
   toggleDropdownCart() {
 
-    this.showCart = !this.showCart;
+    // this.showCart = !this.showCart;
+
+      console.log('cartToggle');
+
+      if($(".cartDropdown").hasClass('hideCart')) {
+        $(".cartDropdown").removeClass("hideCart");
+        $(".cartDropdown").addClass("showCart");
+      } else {
+        $(".cartDropdown").addClass("hideCart");
+        $(".cartDropdown").removeClass("showCart");
+      }
+    
 
     this.countTotalPrice();
   }
@@ -106,7 +126,8 @@ export class HeaderComponent implements OnInit {
   goToCheckout() {
     this.router.navigate(['/checkout']);
 
-    this.showCart = false;
+    // this.showCart = false;
+    $(".cartDropdown").addClass("hideCart");
   }
 }
 

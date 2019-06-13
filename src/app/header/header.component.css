@@ -1,3 +1,11 @@
+.showCart{
+  display: block;
+}
+
+.hideCart{
+  display: none;
+}
+
 .transparentNav {
   height: 70px;
   position: fixed;
