@@ -6,7 +6,6 @@ import { ActivatedRouteStub } from 'src/activatedRouteStub';
 import { DataServiceService } from '../services/data-service.service';
 import { MockDataService } from '../services/mock-data.service';
 
-
 describe('DetailsComponent', () => {
   let component: DetailsComponent;
   let fixture: ComponentFixture<DetailsComponent>;
@@ -21,7 +20,6 @@ describe('DetailsComponent', () => {
         { provide: activatedRoute, useValue: activatedRoute },
         { provide: DataServiceService, useClass: MockDataService }
       ]
-
     })
       .compileComponents();
   }));

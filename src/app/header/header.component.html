@@ -1,30 +1,29 @@
 <header>
   <nav [class]="navClassName">
 
-    <div class='row justify-content-around'>
-      <div class='col-4 col-md-6 col-lg-8'>
+    <div class="row justify-content-around">
+      <div class="col-4 col-md-6 col-lg-8">
         <a routerLink="">
-          <img class='d-block bigLogo' src='../assets/images/headerLogo.png' alt='Logotype of the shop'
-            title='SEEN logo' />
+          <img class="d-block bigLogo" src="../assets/images/headerLogo.png" alt="Logotype of the shop"
+            title="SEEN logo" />
         </a>
       </div>
 
-      <div class='col-8 col-md-6 col-lg-3 text-right cartContainer'>
-        <a routerLink='/admin'><i class="adminIcon fas fa-user"></i></a>
-        <i (click)='toggleDropdownCart()' class='cartIcon fas fa-shopping-cart'>
-          <p class='totalAmount'>{{totalAmount}}</p>
+      <div class="col-8 col-md-6 col-lg-3 text-right cartContainer">
+        <a routerLink="/admin"><i class="adminIcon fas fa-user"></i></a>
+        <i (click)="toggleDropdownCart()" class="cartIcon fas fa-shopping-cart">
+          <p class="totalAmount">{{totalAmount}}</p>
         </i>
-<!-- *ngIf='showCart' -->
-        <div class='cartDropdown text-left hideCart'>
+        <div class="cartDropdown text-left hideCart">
           <div class="row">
             <div class="col-6">
               <h2>Varukorg</h2>
             </div>
-            <div class="col-6 text-right"><i (click)='toggleDropdownCart()' class='closeIcon fas fa-times'></i></div>
+            <div class="col-6 text-right"><i (click)="toggleDropdownCart()" class="closeIcon fas fa-times"></i></div>
           </div>
 
           <hr>
-          <div class="cartInfo" *ngFor='let singleMovie of cart'>
+          <div class="cartInfo" *ngFor="let singleMovie of cart">
             <div class="row">
               <div class="col-4">
                 <img class="cartMovieImage" src="{{singleMovie.movie.imageUrl}}" alt="{{singleMovie.name}}" />
@@ -36,10 +35,10 @@
                 </p>
                 <p>
                   Antal:
-                  <i class='subtractIcon fas fa-minus-circle'
-                    (click)='deleteOneMovieFromCart(singleMovie.movie.id)'></i>
+                  <i class="subtractIcon fas fa-minus-circle"
+                    (click)="deleteOneMovieFromCart(singleMovie.movie.id)"></i>
                   {{singleMovie.amount}}
-                  <i class='addIcon fas fa-plus-circle' (click)='addSingleMovieToCart(singleMovie.movie)'></i>
+                  <i class="addIcon fas fa-plus-circle" (click)="addSingleMovieToCart(singleMovie.movie)"></i>
                   {{singleMovie.totalPrice}}:-
                 </p>
               </div>
@@ -47,14 +46,10 @@
           </div>
           <hr>
           <p><strong>Total summa: {{totalSum}}:-</strong></p>
+          <button (click)="goToCheckout()" *ngIf="totalAmount > 0" class="checkoutButton">Till kassan</button>
+        </div><!-- cartDropdown-->
+      </div><!-- cartContainer-->
 
-            <button (click)="goToCheckout()" *ngIf='totalSum > 0' class='checkoutButton'>Till kassan</button>
-        </div>
-      </div>
-
-    </div>
-
+    </div><!-- row -->
   </nav>
-
- 
 </header>

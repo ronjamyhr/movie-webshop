@@ -13,16 +13,13 @@ import * as $ from 'jquery';
 export class HeaderComponent implements OnInit {
 
   cart: ICartProduct[] = [];
-  // showCart = false;
   totalSum: number;
   totalAmount: number;
   navClassName: string = 'transparentNav';
 
-
   constructor(private interactionService: InteractionService, private router: Router) { }
 
   ngOnInit() {
-
 
     this.interactionService.getCartFromLocalStorage();
     this.cart = this.interactionService.getCart();
@@ -37,9 +34,9 @@ export class HeaderComponent implements OnInit {
     );
 
     $(document).on('click', function (e) {
-      if ($(e.target).closest(".cartContainer").length === 0) {
-        $(".cartDropdown").removeClass("showCart");
-        $(".cartDropdown").addClass("hideCart");
+      if ($(e.target).closest('.cartContainer').length === 0) {
+        $('.cartDropdown').removeClass('showCart');
+        $('.cartDropdown').addClass('hideCart');
       }
     });
 
@@ -47,18 +44,13 @@ export class HeaderComponent implements OnInit {
 
   toggleDropdownCart() {
 
-    // this.showCart = !this.showCart;
-
-      console.log('cartToggle');
-
-      if($(".cartDropdown").hasClass('hideCart')) {
-        $(".cartDropdown").removeClass("hideCart");
-        $(".cartDropdown").addClass("showCart");
+      if($('.cartDropdown').hasClass('hideCart')) {
+        $('.cartDropdown').removeClass('hideCart');
+        $('.cartDropdown').addClass('showCart');
       } else {
-        $(".cartDropdown").addClass("hideCart");
-        $(".cartDropdown").removeClass("showCart");
+        $('.cartDropdown').addClass('hideCart');
+        $('.cartDropdown').removeClass('showCart');
       }
-    
 
     this.countTotalPrice();
   }
@@ -95,7 +87,6 @@ export class HeaderComponent implements OnInit {
 
     for (let i = 0; i < this.cart.length; i++) {
 
-      // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalSum += this.cart[i].movie.price * this.cart[i].amount;
     }
   }
@@ -106,7 +97,6 @@ export class HeaderComponent implements OnInit {
 
     for (let i = 0; i < this.cart.length; i++) {
 
-      // this.totalAmount blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalAmount += this.cart[i].amount;
     }
   }
@@ -126,8 +116,7 @@ export class HeaderComponent implements OnInit {
   goToCheckout() {
     this.router.navigate(['/checkout']);
 
-    // this.showCart = false;
-    $(".cartDropdown").addClass("hideCart");
+    $('.cartDropdown').addClass('hideCart');
   }
 }
 

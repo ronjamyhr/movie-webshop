@@ -1,13 +1,11 @@
-<main role='main'>
+<main role="main">
   <article class="checkoutContainer">
     <section>
-
       <div class="row justify-content-center">
         <div class="col-10 text-center">
           <h1>Kassan</h1>
           <hr>
         </div>
-
         <div class="col-8 col-md-6 col-lg-4">
           <h2 class="yourCart">Din varukorg</h2>
           <div class="cartInfo" *ngFor='let singleMovie of cart'>
@@ -34,11 +32,10 @@
           <hr>
         </div>
         <div class="col-10 text-center">
-          <p class="totalSum"><strong>Total summa: {{totalSum}}:-</strong></p>
+          <p class="totalSum"><strong>Total summa: {{totalAmount}} x {{totalSum}}:- </strong></p>
         </div>
       </div>
     </section>
-
 
     <section>
       <div class="row justify-content-center">
@@ -85,7 +82,6 @@
 
         </div>
       </div>
-
     </section>
 
     <div class="row justify-content-center">

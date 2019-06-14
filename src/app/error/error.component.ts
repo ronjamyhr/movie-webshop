@@ -18,7 +18,6 @@ export class ErrorComponent implements OnInit {
       }
       window.scrollTo(0, 0)
     });
-
   }
 
 }

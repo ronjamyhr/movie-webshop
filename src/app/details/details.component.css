@@ -52,7 +52,6 @@
   opacity: 0.3;
 }
 
-
 @media (min-width: 768px) {
 
   .singleMovieImage {
@@ -61,12 +60,10 @@
   }
 }
 
-
 @media (min-width: 992px) {
 
   .singleMovieImage {
     height: 430px;
     width: 290px;
-
   }
 }

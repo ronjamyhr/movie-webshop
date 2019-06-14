@@ -1,8 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { IOrder, IOrderRow, IExtendedOrder } from '../interfaces/IOrder';
+import { IExtendedOrder } from '../interfaces/IOrder';
 import { DataServiceService } from '../services/data-service.service';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { IMovie } from '../interfaces/IMovie';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -11,7 +10,6 @@ import { IMovie } from '../interfaces/IMovie';
 })
 export class AdminComponent implements OnInit {
 
-  //orders: IOrder[];
   extendedOrders: IExtendedOrder[] = [];
   backToTop = false;
 
@@ -26,30 +24,25 @@ export class AdminComponent implements OnInit {
       window.scrollTo(0, 0)
     });
 
+    // Prenumerera på ordern och filmnamnet som ligger i databasen och pushar in i egenskapen extendedOrders 
     this.dataService.fetchOrder().subscribe((orderData) => {
-      
-      //this.orders = orderData;
 
       for (let i = 0; i < orderData.length; i++) {
-        this.extendedOrders.push({ order: orderData[i], movieNames: []});
+        this.extendedOrders.push({ order: orderData[i], movieNames: [] });
 
         let orderRows = orderData[i].orderRows;
 
         for (let j = 0; j < orderRows.length; j++) {
           let productId = orderRows[j].productId;
 
-          //console.log('product id from orderrows: ' + productId);
-
           this.dataService.fetchSingleMovie(productId).subscribe((data) => {
-      
-            //console.log(data);
+
             this.extendedOrders[i].movieNames.push(data.name);
 
           });
         }
       }
     });
-
   }
 
   @HostListener('window:scroll', ['$event']) onScrollEvent($event) {
@@ -69,7 +62,7 @@ export class AdminComponent implements OnInit {
 
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: 'smooth'
     });
   }
 

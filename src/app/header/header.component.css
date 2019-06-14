@@ -1,8 +1,8 @@
-.showCart{
+.showCart {
   display: block;
 }
 
-.hideCart{
+.hideCart {
   display: none;
 }
 
@@ -62,7 +62,6 @@
   font-weight: 400;
 }
 
-
 .closeIcon {
   font-size: 1.5rem;
   cursor: pointer;
@@ -114,16 +113,12 @@
   opacity: 0.75;
 }
 
-@media (min-width: 768px) {}
-
 @media (min-width: 992px) {
-
 
   .cartIcon {
     margin-right: 1em;
     font-size: 1.7rem;
   }
-
 
   .totalAmount {
     line-height: 2em;
@@ -132,6 +127,4 @@
     width: 2em;
     height: 2em;
   }
-
-
 }

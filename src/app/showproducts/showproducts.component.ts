@@ -12,15 +12,13 @@ export class ShowproductsComponent implements OnInit {
   productsArray: IMovie[];
   backToTop = false;
 
-
   constructor(private dataService: DataServiceService) {
   }
 
   ngOnInit() {
-     // Här prenumererar vi på data som vi får från fetchMovies, all data vi får sparas i variabeln movieApi.
-     this.dataService.fetchMovies().subscribe(movieApi => this.productsArray = movieApi);
+    // Här prenumererar vi på data som vi får från fetchMovies, all data vi får sparas i variabeln movieApi.
+    this.dataService.fetchMovies().subscribe(movieApi => this.productsArray = movieApi);
   }
-
 
   @HostListener('window:scroll', ['$event']) onScrollEvent($event) {
 
@@ -35,14 +33,12 @@ export class ShowproductsComponent implements OnInit {
     }
   }
 
-  scrollToTop(){
+  scrollToTop() {
 
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: 'smooth'
     });
   }
-
-
 
 }
