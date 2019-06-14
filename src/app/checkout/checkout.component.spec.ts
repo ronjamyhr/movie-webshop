@@ -13,7 +13,7 @@ describe('CheckoutComponent', () => {
     TestBed.configureTestingModule({
       declarations: [CheckoutComponent],
       imports: [RouterTestingModule, HttpClientModule, ReactiveFormsModule, FormsModule],
-      providers: [ FormBuilder ]
+      providers: [FormBuilder]
     })
       .compileComponents();
   }));
@@ -28,11 +28,9 @@ describe('CheckoutComponent', () => {
     expect(component).toBeTruthy();
   });
 
-
   it('clear cart after submit', () => {
 
     const service = new MockDataService();
-
     service.fetchMovies().subscribe((movies) => {
 
       component.addSingleMovieToCart(movies[0]);
@@ -41,6 +39,5 @@ describe('CheckoutComponent', () => {
       expect(component.cart.length).toEqual(0);
     });
   });
-  
 
 });

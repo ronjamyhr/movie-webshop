@@ -14,12 +14,11 @@ export class InteractionService {
 
   constructor() { }
 
-  //skickar med hela min cart
   sendCart(movie: IMovie) {
 
     let addedMovie = false;
 
-    // movieToAdd.id = id på klickade film
+    // movie.id = id på klickade film
     //this.cart[i].movie.id = id på den som finns i cart
     for (let i = 0; i < this.cart.length; i++) {
       if (movie.id === this.cart[i].movie.id) {
@@ -34,7 +33,6 @@ export class InteractionService {
     }
 
     this.movieSource.next(this.cart);
-
     this.saveCartToLocalStorage();
   }
 
@@ -52,7 +50,6 @@ export class InteractionService {
       }
     }
     this.movieSource.next(this.cart);
-
     this.saveCartToLocalStorage();
   }
 
@@ -70,20 +67,16 @@ export class InteractionService {
     } else {
       this.cart = JSON.parse(fetchLocalStorageCart);
     }
-
     this.getCart();
   }
 
   getCart() {
-
     return this.cart;
   }
 
-  clearCartLocalstorage(){
+  clearCartLocalstorage() {
     this.cart.splice(0, this.cart.length);
-  
     this.movieSource.next(this.cart);
-
     this.saveCartToLocalStorage();
   }
 

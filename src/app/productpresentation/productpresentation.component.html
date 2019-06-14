@@ -1,16 +1,13 @@
 <li class="row justify-content-center movieCard">
   <div class="col-12 moviesFrame text-center">
     <img class="movieImage" src="{{movie.imageUrl}}" alt="{{movie.name}}" />
-
     <div class="d-none d-lg-flex addToCartDesktop">
       <div class="row justify-content-center">
         <button (click)="addMovieToCart(movie)" type="button" class="col-10 addToCartBtn">Lägg till +</button>
         <button class="col-10 movieInfoBtn" [routerLink]="['/details', movie.id]">Mer info</button>
       </div>
     </div>
-
   </div>
-
   <div class="col-12 text-center movieInformation">
     <h3 class="movieName">
       {{movie.name}}
@@ -19,7 +16,6 @@
       {{movie.price}}:-/st
     </p>
   </div>
-
   <div class="col-12 text-center d-lg-none movieButtons">
     <div class="row justify-content-center">
       <button (click)="addMovieToCart(movie)" type="button" class="col-10 addToCartBtn">Lägg till +</button>

@@ -13,12 +13,12 @@ describe('ShowproductsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShowproductsComponent, ProductpresentationComponent ],
-      imports: [ HttpClientModule, RouterTestingModule ]
+      declarations: [ShowproductsComponent, ProductpresentationComponent],
+      imports: [HttpClientModule, RouterTestingModule]
 
     })
-    .overrideComponent(ShowproductsComponent, { set: { providers: [{ provide: DataServiceService, useClass: MockDataService }]}})
-    .compileComponents();
+      .overrideComponent(ShowproductsComponent, { set: { providers: [{ provide: DataServiceService, useClass: MockDataService }] } })
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -18,7 +18,6 @@ export class CheckoutComponent implements OnInit {
   backToTop = false;
   timeNow = moment().format('lll');
   cart: ICartProduct[] = [];
-  showCart = false;
   totalSum: number;
   totalAmount: number;
   orderForm = this.fb.group({
@@ -53,19 +52,10 @@ export class CheckoutComponent implements OnInit {
     );
   }
 
-  toggleDropdownCart() {
-
-    this.showCart = !this.showCart;
-
-    this.countTotalPrice();
-  }
-
   addSingleMovieToCart(singleMovie: IMovie) {
 
     this.interactionService.sendCart(singleMovie);
-
     this.cart = this.interactionService.cart;
-
     this.countTotalAmount();
     this.countTotalPrice();
   }
@@ -73,7 +63,6 @@ export class CheckoutComponent implements OnInit {
   deleteOneMovieFromCart(id) {
 
     this.interactionService.delete(id);
-
     this.countTotalAmount();
     this.countTotalPrice();
   }
@@ -81,7 +70,6 @@ export class CheckoutComponent implements OnInit {
   print(cart) {
 
     this.cart = cart;
-
     this.countTotalAmount();
     this.countTotalPrice();
   }
@@ -89,10 +77,7 @@ export class CheckoutComponent implements OnInit {
   countTotalPrice() {
 
     this.totalSum = 0;
-
     for (let i = 0; i < this.cart.length; i++) {
-
-      // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalSum += this.cart[i].movie.price * this.cart[i].amount;
     }
   }
@@ -100,26 +85,21 @@ export class CheckoutComponent implements OnInit {
   countTotalAmount() {
 
     this.totalAmount = 0;
-
     for (let i = 0; i < this.cart.length; i++) {
-
-      // this.totalAmount blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalAmount += this.cart[i].amount;
     }
   }
 
+  //Lägger in order i databasen, hämtar från formulär och egenskaper, prenumererar på postOrder från interaction service.
   postOrder() {
 
     if (this.orderForm.valid) {
 
-
       let orderRowsContent = [];
 
       for (let i = 0; i < this.cart.length; i++) {
-
         let amount = this.cart[i].amount;
         let id = this.cart[i].movie.id;
-
         orderRowsContent.push({ productId: id, amount: amount });
       }
 
@@ -135,9 +115,7 @@ export class CheckoutComponent implements OnInit {
       }
 
       this.dataService.postOrder(order).subscribe();
-
       this.clearCart();
-
       this.router.navigate(['/finish']);
 
     }
@@ -150,12 +128,8 @@ export class CheckoutComponent implements OnInit {
   @HostListener('window:scroll', ['$event']) onScrollEvent($event) {
 
     if ($event.path[1].scrollY >= 100) {
-
       this.backToTop = true;
-
-
     } else if ($event.path[1].scrollY <= 100) {
-
       this.backToTop = false;
     }
   }
@@ -164,9 +138,8 @@ export class CheckoutComponent implements OnInit {
 
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: 'smooth'
     });
   }
-
 
 }

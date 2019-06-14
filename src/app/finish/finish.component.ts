@@ -18,7 +18,6 @@ export class FinishComponent implements OnInit {
       }
       window.scrollTo(0, 0)
     });
-
   }
 
 }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { DataServiceService } from '../services/data-service.service';
 import { IMovie } from '../interfaces/IMovie';
-//import { MockDataService } from '../services/mock-data.service';
 import { InteractionService } from '../services/interaction.service';
 
 @Component({
@@ -36,7 +35,6 @@ export class DetailsComponent implements OnInit {
 
     this.route.paramMap.subscribe(myParams => {
       let id = myParams.get('id');
-      // console.log('Got from service ' + id);
       this.dataService.fetchSingleMovie(id).subscribe((data) => {
         this.singleMovie = data;
       });
@@ -44,7 +42,6 @@ export class DetailsComponent implements OnInit {
   }
 
   addMovieToCart(movie) {
-
     this.interactionService.sendCart(movie);
   }
 
