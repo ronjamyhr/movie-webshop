@@ -1,0 +1,107 @@
+li {
+  list-style: none;
+}
+
+.movieImage {
+  object-fit: cover;
+  height: 320px;
+  width: 210px;
+}
+
+.moviesFrame {
+  overflow: hidden;
+}
+
+.movieInformation {
+  min-height: 120px;
+}
+
+.movieName {
+  margin-top: 1em;
+}
+
+.movieButtons {
+  margin-bottom: 2em;
+}
+
+.addToCartBtn {
+  background: #ffdb6c;
+  margin: 0.2em;
+  width: 100px;
+  border: none;
+  border-radius: 2px;
+  color: #262626;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.movieInfoBtn {
+  background: #1a1a1a;
+  margin: 0.2em;
+  width: 100px;
+  border: none;
+  border-radius: 2px;
+  color: #ffdb6c;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.movieInfoBtn:hover,
+.addToCartBtn:hover {
+  opacity: 0.3;
+}
+
+@media (min-width: 768px) {
+
+  .movieInformation {
+    min-height: 130px;
+  }
+
+  .movieName {
+    font-size: 1.1rem;
+  }
+
+}
+
+@media (min-width: 992px) {
+
+  .movieImage {
+    object-fit: cover;
+    height: 380px;
+    width: 250px;
+    transition: .5s ease;
+  }
+
+  .moviesFrame:hover .movieImage {
+    opacity: 0.2;
+  }
+
+  .addToCartDesktop {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .moviesFrame:hover .addToCartDesktop {
+    opacity: 1;
+  }
+
+  .movieName {
+    font-size: 1.2rem;
+  }
+
+  .movieInfoBtn:hover,
+  .addToCartBtn:hover {
+    opacity: 0.7;
+  }
+
+}

@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  color: white;
+}
+
+body {
+  overflow-x: hidden;
+  background: rgb(67, 67, 67);
+  background: linear-gradient(180deg, rgba(67, 67, 67, 1) 2%, rgba(38, 38, 38, 1) 10%, rgba(22, 22, 22, 1) 100%);
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}

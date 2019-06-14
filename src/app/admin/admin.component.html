@@ -1,0 +1,28 @@
+<main role="main">
+  <article class="adminContainer">
+    <div class="row justify-content-center">
+      <div class="col-10 ordersContainer">
+        <h1>Ordrar:</h1>
+
+        <div class="orders" *ngFor="let orders of extendedOrders.slice().reverse() let i = index;">
+          <p class="orderInfo"><strong>Order ID:</strong> {{ orders.order.id }}</p>
+          <p class="orderInfo"><strong>Skapad av:</strong> {{ orders.order.createdBy }}</p>
+          <p class="orderInfo"><strong>Tid:</strong> {{ orders.order.created }}</p>
+          <p class="orderInfo"><strong>Företags ID:</strong> {{ orders.order.companyId }}</p>
+          <p class="orderInfo"><strong>Totalpris:</strong> {{ orders.order.totalPrice }}:-</p>
+          <div *ngFor="let name of orders.movieNames">
+            <p class="orderInfo"><strong>Film:</strong> {{ name }}</p>
+          </div>
+          <div *ngFor="let orderRow of orders.order.orderRows">
+            <p class="orderInfo"><strong>Product ID:</strong> {{ orderRow.productId }}</p>
+            <p class="orderInfo"><strong>Antal:</strong> {{ orderRow.amount }}</p>
+          </div>
+        </div>
+
+      </div><!-- ordersContainer-->
+    </div><!-- row -->
+    <div *ngIf="backToTop">
+      <a (click)="scrollToTop()" class="backToTop"><i class="backToTopIcon fas fa-chevron-up"></i></a>
+    </div>
+  </article>
+</main>

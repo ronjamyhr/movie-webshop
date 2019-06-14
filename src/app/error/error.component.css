@@ -1,0 +1,32 @@
+.errorContainer {
+  padding: 10em 0;
+}
+
+.errorIconContainer {
+  margin-bottom: 3em;
+}
+
+.errorIcon {
+  font-size: 15rem;
+  opacity: 0.5;
+  color: red;
+}
+
+h1 {
+  margin-bottom: 1em;
+}
+
+.link {
+  margin-top: 3em;
+}
+
+.goToHomepageLink {
+  text-decoration: none;
+  color: darkgrey;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+.goToHomepageLink:hover {
+  opacity: 0.3;
+}

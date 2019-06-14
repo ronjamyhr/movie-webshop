@@ -1,0 +1,130 @@
+.showCart {
+  display: block;
+}
+
+.hideCart {
+  display: none;
+}
+
+.transparentNav {
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  z-index: 1;
+}
+
+.darkNav {
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  background-color: #262626;
+  z-index: 1;
+}
+
+.bigLogo {
+  margin-top: 0.5em;
+  width: 200px;
+  float: left;
+}
+
+.adminIcon {
+  margin: 0 0.2em 0.2em 0;
+}
+
+.adminIcon:hover {
+  opacity: 0.5;
+}
+
+.cartIcon {
+  position: relative;
+  color: #ffdb6c;
+  font-size: 1.5rem;
+  padding-top: 1em;
+  cursor: pointer;
+  margin-right: 1.3em;
+}
+
+.totalAmount {
+  background-color: white;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  display: block;
+  position: absolute;
+  text-align: center;
+  line-height: 1.7em;
+  top: 0.7em;
+  right: -1.2em;
+  width: 1.7em;
+  height: 1.7em;
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+.closeIcon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.addIcon {
+  padding: 0.3em;
+  cursor: pointer;
+}
+
+.subtractIcon {
+  padding: 0.3em;
+  cursor: pointer;
+}
+
+.cartInfo {
+  margin: 2em 0;
+}
+
+.cartMovieImage {
+  object-fit: cover;
+  height: 100px;
+  width: 65px;
+}
+
+.cartDropdown {
+  background-color: #262626;
+  padding: 1em;
+  overflow: scroll;
+  max-height: 500px;
+  border-radius: 3px;
+  margin-top: 0.8em;
+}
+
+.checkoutButton {
+  background: #1b1a1a;
+  margin: 0.2em;
+  width: 100px;
+  border: none;
+  border-radius: 2px;
+  color: #ffdb6c;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.checkoutButton:hover {
+  opacity: 0.75;
+}
+
+@media (min-width: 992px) {
+
+  .cartIcon {
+    margin-right: 1em;
+    font-size: 1.7rem;
+  }
+
+  .totalAmount {
+    line-height: 2em;
+    top: 0.8em;
+    right: -1.5em;
+    width: 2em;
+    height: 2em;
+  }
+}

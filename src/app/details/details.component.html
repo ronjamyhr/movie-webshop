@@ -1,0 +1,32 @@
+<main role="main">
+  <article class="detailContainer">
+    <div class="row justify-content-center">
+      <div class="col-10 text-center movieNameYear">
+        <h1>{{singleMovie.name}}</h1>
+        <p>{{singleMovie.year}} </p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-10 col-md-5 col-lg-3 text-center">
+        <div class="singleMovieFrame">
+          <img class="singleMovieImage" src="{{singleMovie.imageUrl}}" alt="{{singleMovie.name}}" />
+        </div>
+      </div>
+      <div class="col-10 col-md-5 col-lg-3 text-center movieDescriptionPrice">
+        <p>{{singleMovie.description}}</p>
+        <p>{{singleMovie.price}}:-</p>
+        <button (click)="addMovieToCart(singleMovie)" type="button" class="addToCartBtn">Lägg till +</button>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-10 text-center">
+        <a class="fas fa-backward goToHomepageIcon" routerLink=""></a>
+      </div>
+      <div class="col-10 text-center">
+        <a class="goToHomepageLink" routerLink="">Tillbaka till startsidan</a>
+      </div>
+    </div>
+  </article>
+</main>

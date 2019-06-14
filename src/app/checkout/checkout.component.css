@@ -1,0 +1,161 @@
+.checkoutContainer {
+  padding: 10em 0;
+}
+
+.yourCart{
+  margin: 2em 0 1em 0;
+  font-size: 1.3rem;
+}
+
+.cartInfo{
+  margin: 2em 0;
+}
+
+.cartMovieImage {
+  object-fit: cover;
+  height: 200px;
+  width: 130px;
+}
+
+.addIcon {
+  padding: 0.3em;
+  cursor: pointer;
+}
+
+.subtractIcon {
+  padding: 0.3em;
+  cursor: pointer;
+}
+
+.totalSum{
+  font-size: 1.2rem;
+}
+
+.formContainer{
+  background-color: #474646;
+  border-radius: 3px;
+  min-height: 300px;
+  padding: 2em;
+}
+
+.paymentDetails{
+  margin: 2em 0 1em 0;
+  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+.mailLabel,
+.paymentLabel{
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  display: block;
+  margin-top: 1em;
+}
+
+.mailInput{
+  border: none;
+  border-radius: 3px;
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+.mailInput[type=text] {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 6px 0;
+  box-sizing: border-box;
+}
+
+.paymentIcon{
+  font-size: 2.5rem;
+  margin: 0.2em;
+  color: white;
+}
+
+.paymentMethod{
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  background-color: white;
+  height: 40px;
+  font-family: 'Lato', sans-serif;
+}
+
+.errorMessage{
+  color: red;
+}
+
+.finishOrderBtn {
+  background: #1b1a1a;
+  margin-top: 1em;
+  width: 250px;
+  border: none;
+  border-radius: 3px;
+  color: #ffdb6c;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.finishOrderBtn:hover {
+  opacity: 0.75;
+}
+
+.goToHomepageIcon {
+  margin-top: 3em;
+  text-decoration: none;
+  font-size: 1rem;
+  color: darkgrey;
+}
+
+.goToHomepageLink {
+  text-decoration: none;
+  color: darkgrey;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+.goToHomepageIcon:hover,
+.goToHomepageLink:hover {
+  opacity: 0.3;
+}
+
+.backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  cursor: pointer;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease;
+}
+
+.backToTopIcon {
+  color: white;
+  opacity: 0.5;
+  margin: 0;
+  position: relative;
+  left: 16px;
+  top: 13px;
+  font-size: 19px;
+  transition: all 0.3s ease;
+}
+
+.backToTop:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.backToTopIcon:hover {
+  color: white;
+  opacity: 0.9;
+  top: 5px;
+}
